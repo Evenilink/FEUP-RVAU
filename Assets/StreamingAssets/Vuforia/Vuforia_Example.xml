@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
-        <ImageTarget name="cereals_box.Back" size="0.190000 0.260123"/>
+        <ImageTarget name="rocks" size="800.000000 450.000000"/>
         <ImageTarget name="cereals_box.Left" size="0.045000 0.259603"/>
+        <ImageTarget name="cereals_box.Back" size="0.190000 0.260123"/>
         <ImageTarget name="cereals_box.Right" size="0.045000 0.259603"/>
         <ImageTarget name="cereals_box.Front" size="0.190000 0.260123"/>
         <MultiTarget name="cereals_box">
