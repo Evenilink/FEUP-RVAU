@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 0.04f;
     private bool isRight = true;
+    private bool isGrounded = false;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce;
@@ -31,21 +32,14 @@ public class PlayerController : MonoBehaviour {
         HandleCorners();
         HandleMovement();
 
-        if (Input.GetButtonDown("Jump") && !jumpPressed)
+        Debug.Log(isGrounded);
+        if (Input.GetButtonDown("Jump") && isGrounded)
             jumpPressed = true;
     }
 
     private void FixedUpdate() {
-        if (jumpPressed) {
-            rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
-            jumpPressed = false;
-        }
-
-        Debug.Log(rb.velocity);
-        if (rb.velocity.y < 0)
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1);
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1);
+        isGrounded = Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f, levelMask);
+        HandleJump();
     }
 
     private void HandleMovement() {
@@ -75,11 +69,17 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleJump() {
         if (jumpPressed) {
-            rb.AddForce(0, 0, 5, ForceMode.Impulse);
+            rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
             jumpPressed = false;
         }
 
-        if (rb.velocity.z < 0)
-            rb.velocity += Vector3.up * Physics.gravity.z * (fallMultiplier - 1);
+        if (rb.velocity.y < 0)
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1);
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1);
+    }
+
+    private void OnDrawGizmosSelected() {
+        DebugExtension.DebugCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f);
     }
 }
