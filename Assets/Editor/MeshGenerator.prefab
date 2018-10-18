@@ -53,9 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFile: {fileID: 102900000, guid: 958f4560716e215408cdb8238f35f15d, type: 3}
   meshName: House
-  quadToInstantiate: {fileID: 1691646119025030, guid: f73949ee3d4f1624d8959e0e52828873,
+  quadToInstantiate: {fileID: 1141501183495780, guid: ca710b1405760614cbe2567da0e896b0,
     type: 2}
-  scale: {x: 2, y: 2, z: 2}
+  scale: {x: 0.4, y: 0.4, z: 0.4}
   parent: {fileID: 0}
   layerMask:
     serializedVersion: 2
