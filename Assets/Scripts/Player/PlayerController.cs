@@ -23,22 +23,25 @@ public class PlayerController : MonoBehaviour {
     private const float ROTATE_FROM_RIGHT = -90f;
     private const float ROTATE_FLIP = 180F;
     private const float RAYCAST_LENGTH = 5f;
+    private float lastHeight;
+
+    public GameObject[] levels; // TODO: find a better way than this.
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        lastHeight = transform.position.y;
     }
 
     private void Update() {
         HandleCorners();
         HandleMovement();
 
-        Debug.Log(isGrounded);
         if (Input.GetButtonDown("Jump") && isGrounded)
             jumpPressed = true;
     }
 
     private void FixedUpdate() {
-        isGrounded = Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f, levelMask);
+        HandleIsGrounded();
         HandleJump();
     }
 
@@ -55,8 +58,16 @@ public class PlayerController : MonoBehaviour {
     // It it doesn't detect the level, it rotates the gameobject accordingly.
     private void HandleCorners() {
         Debug.DrawLine(transform.position + transform.right * raycastThreshold, transform.position + transform.right * raycastThreshold - Vector3.up * RAYCAST_LENGTH, Color.red);
-        if (!Physics.Raycast(transform.position + transform.right * raycastThreshold, -Vector3.up, RAYCAST_LENGTH, levelMask))
-            RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
+        if (!Physics.Raycast(transform.position + transform.right * raycastThreshold, -Vector3.up, RAYCAST_LENGTH, levelMask)) {
+            bool contains = false;
+            for (int i = 0; i < levels.Length; i++) {
+                if (levels[i].GetComponent<MeshCollider>().bounds.Contains(transform.position + transform.right * raycastThreshold))
+                    contains = true;
+            }
+            if (!contains)
+                RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
+        }
+
     }
 
     // Rotates this gameobject by a 'rotateAmount'.
@@ -77,6 +88,17 @@ public class PlayerController : MonoBehaviour {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1);
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1);
+    }
+
+    private void HandleIsGrounded() {
+        bool currIsGrounded = Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f, levelMask);
+        if (currIsGrounded && !isGrounded) {
+            if (transform.position.y > lastHeight) {
+                LevelScrollingManager.Instance().ScrollToHeight(transform.position.y - lastHeight);
+                lastHeight = transform.position.y;
+            }
+        }
+        isGrounded = currIsGrounded;
     }
 
     private void OnDrawGizmosSelected() {
