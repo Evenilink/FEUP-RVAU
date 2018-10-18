@@ -24,12 +24,20 @@ public class PlayerController : MonoBehaviour {
     private const float ROTATE_FLIP = 180F;
     private const float RAYCAST_LENGTH = 5f;
     private float lastHeight;
+    private Transform lastCheckpoint;
+
+    private struct CheckpointInfo {
+        public Vector3 position;
+        public Quaternion rotation;
+    };
+    private CheckpointInfo checkpointInfo;
 
     public GameObject[] levels; // TODO: find a better way than this.
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
         lastHeight = transform.position.y;
+        SetCheckpointInfo(transform.position, transform.rotation);
     }
 
     private void Update() {
@@ -38,6 +46,10 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && isGrounded)
             jumpPressed = true;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            Respawn();
+
     }
 
     private void FixedUpdate() {
@@ -101,7 +113,24 @@ public class PlayerController : MonoBehaviour {
         isGrounded = currIsGrounded;
     }
 
+    private void SetCheckpointInfo(Vector3 position, Quaternion rotation) {
+        checkpointInfo.position = position;
+        checkpointInfo.rotation = rotation;
+    }
+
+    private void Respawn() {
+        transform.position = checkpointInfo.position;
+        transform.rotation = checkpointInfo.rotation;
+    }
+
     private void OnDrawGizmosSelected() {
         DebugExtension.DebugCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Checkpoint" && other.gameObject.transform != lastCheckpoint) {
+            SetCheckpointInfo(other.gameObject.transform.position, other.gameObject.transform.rotation);
+            Destroy(other.gameObject);
+        }
     }
 }

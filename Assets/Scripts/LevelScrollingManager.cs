@@ -14,11 +14,14 @@ public class LevelScrollingManager : MonoBehaviour {
         else instance = this;
     }
 
+    // Method invoked by the object that calls the singleton instance, in order to scroll the level.
     public void ScrollToHeight(float height) {
         StopAllCoroutines();
         StartCoroutine(ScrollToHeightCoroutine(height));
     }
 
+    // Coroutine to spherically interpolate the level.
+    // The level scrolls down as the player goes up.
     private IEnumerator ScrollToHeightCoroutine(float height) {
         float startTime = Time.time;
         float fracComplete = 0f;
