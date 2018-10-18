@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1927481954543386}
+  m_IsPrefabAsset: 1
+--- !u!1 &1927481954543386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4743452872559268}
+  - component: {fileID: 114834509096649818}
+  m_Layer: 0
+  m_Name: MeshGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4743452872559268
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927481954543386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114834509096649818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927481954543386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8e088cd7c8f3d4391b3f3dc8f489e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFile: {fileID: 102900000, guid: 958f4560716e215408cdb8238f35f15d, type: 3}
+  meshName: House
+  quadToInstantiate: {fileID: 1691646119025030, guid: f73949ee3d4f1624d8959e0e52828873,
+    type: 2}
+  scale: {x: 2, y: 2, z: 2}
+  parent: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4
+  material: {fileID: 2100000, guid: de63ff5515aad874cbff8c81b6d89e98, type: 2}
+  textureMapping:
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    sideTexture: {fileID: 2800000, guid: dfea3bc844f7b454e89aedb9d20124f7, type: 3}
+    topTexture: {fileID: 2800000, guid: 134af56b6772cb04a9814a362ef42636, type: 3}
+    bottomTexture: {fileID: 2800000, guid: bf1045882e461f04c9d6d2d20a1dad9a, type: 3}
+  - color: {r: 0.53333336, g: 0.53333336, b: 0.53333336, a: 1}
+    sideTexture: {fileID: 2800000, guid: 6dd654f36e428134caeeb78d3c702991, type: 3}
+    topTexture: {fileID: 2800000, guid: e54aaae31358448448cd16a23a8d84df, type: 3}
+    bottomTexture: {fileID: 2800000, guid: e54aaae31358448448cd16a23a8d84df, type: 3}
+  - color: {r: 0.42745098, g: 0.16078432, b: 0.12156863, a: 1}
+    sideTexture: {fileID: 2800000, guid: 63b4348acf6d2cc4e88253914dcf11c6, type: 3}
+    topTexture: {fileID: 2800000, guid: 16dab8fc56252c84581e6df80ab87162, type: 3}
+    bottomTexture: {fileID: 2800000, guid: 16dab8fc56252c84581e6df80ab87162, type: 3}
