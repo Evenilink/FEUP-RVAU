@@ -4,27 +4,30 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 0.04f;
+    [SerializeField] private bool startFacingRight = true;
+    // Distance from the player that the raycast for obstacle detection starts.
+    [SerializeField] private float distFromPlayerAndAbism = 0.2f;
+    // Minimum distance from the player and an obstacle.
+    [SerializeField, Range(0.09f, 0.15f)] private float minDistToObstacle = 0.09f;
+    [SerializeField] private float lengthAbismRay = 3f;
     private bool isRight = true;
-    private bool isGrounded = false;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
     private bool jumpPressed = false;
+    private bool isGrounded = false;
 
     [Header("Raycast")]
     [SerializeField] private LayerMask levelMask;
-    [SerializeField] private float raycastThreshold = 0.03f;
 
     [Header("Defaults")]
     private Rigidbody rb;
     private enum RotateType { FLIP, CORNER }
     private const float ROTATE_FROM_RIGHT = -90f;
     private const float ROTATE_FLIP = 180F;
-    private const float RAYCAST_LENGTH = 5f;
     private float lastHeight;
-    private Transform lastCheckpoint;
 
     private struct CheckpointInfo {
         public Vector3 position;
@@ -32,16 +35,16 @@ public class PlayerController : MonoBehaviour {
     };
     private CheckpointInfo checkpointInfo;
 
-    public GameObject[] levels; // TODO: find a better way than this.
-
     private void Start() {
         rb = GetComponent<Rigidbody>();
         lastHeight = transform.position.y;
+        if (!startFacingRight)
+            RotatePlayer(ROTATE_FLIP);
+        // If player dies before reaching any checkpoint, it respawns at the start of the level.
         SetCheckpointInfo(transform.position, transform.rotation);
     }
 
     private void Update() {
-        HandleCorners();
         HandleMovement();
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -61,25 +64,41 @@ public class PlayerController : MonoBehaviour {
         float hInput = Input.GetAxis("Horizontal");
         if (hInput < 0 && isRight || hInput > 0 && !isRight)
             RotatePlayer(ROTATE_FLIP);
-        // Since we're rotating the character when he flips (instead of applying a negative scale) we're only interested in the absolute value of the input.
-        Vector3 horizontalMovement = transform.right * Mathf.Abs(hInput);
-        transform.position += horizontalMovement * movementSpeed * Time.deltaTime;
+
+        if (hInput != 0) {
+            bool obstacleDetected = false;
+            bool canMove = CalculateWallObstacle(out obstacleDetected);
+            if (canMove) {
+                // No need to calculate if there's an abism if we know there's an obstacle in front of the player.
+                if (!obstacleDetected)
+                    CalculateAbism();
+                // Since we're rotating the character when he flips (instead of applying a negative scale) we're only interested in the absolute value of the input.
+                Vector3 horizontalMovement = transform.right * Mathf.Abs(hInput);
+                transform.position += horizontalMovement * movementSpeed * Time.deltaTime;
+            }
+        }
     }
 
     // Raycasts from a threshold to detect the end of the level.
     // It it doesn't detect the level, it rotates the gameobject accordingly.
-    private void HandleCorners() {
-        Debug.DrawLine(transform.position + transform.right * raycastThreshold, transform.position + transform.right * raycastThreshold - Vector3.up * RAYCAST_LENGTH, Color.red);
-        if (!Physics.Raycast(transform.position + transform.right * raycastThreshold, -Vector3.up, RAYCAST_LENGTH, levelMask)) {
-            bool contains = false;
-            for (int i = 0; i < levels.Length; i++) {
-                if (levels[i].GetComponent<MeshCollider>().bounds.Contains(transform.position + transform.right * raycastThreshold))
-                    contains = true;
-            }
-            if (!contains)
-                RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
+    private bool CalculateWallObstacle(out bool obstacleDetected) {
+        RaycastHit hit;
+        Vector3 startPosition = transform.position;
+        Debug.DrawLine(startPosition, startPosition + transform.right * (distFromPlayerAndAbism + minDistToObstacle + 1f), Color.blue);
+        if (Physics.Raycast(startPosition, transform.right, out hit, distFromPlayerAndAbism + minDistToObstacle + 1f, levelMask)) {
+            obstacleDetected = true;
+            if (hit.distance <= minDistToObstacle)
+                return false;
         }
+        else obstacleDetected = false;
+        return true;
+    }
 
+    private void CalculateAbism() {
+        Vector3 startPosition = transform.position + transform.right * distFromPlayerAndAbism;
+        Debug.DrawLine(startPosition, startPosition + -transform.up * lengthAbismRay, Color.red);
+        if (!Physics.Raycast(startPosition, -transform.up, lengthAbismRay, levelMask))
+            RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
     }
 
     // Rotates this gameobject by a 'rotateAmount'.
@@ -87,7 +106,7 @@ public class PlayerController : MonoBehaviour {
     private void RotatePlayer(float rotateAmount) {
         if (rotateAmount == ROTATE_FLIP)
             isRight = !isRight;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + rotateAmount);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + rotateAmount, transform.eulerAngles.z);
     }
 
     private void HandleJump() {
@@ -108,6 +127,9 @@ public class PlayerController : MonoBehaviour {
             if (transform.position.y > lastHeight) {
                 LevelScrollingManager.Instance().ScrollToHeight(transform.position.y - lastHeight);
                 lastHeight = transform.position.y;
+                Debug.Log("Before: " + checkpointInfo.position);
+                SetCheckpointInfo(checkpointInfo.position - new Vector3(0, transform.position.y - lastHeight, 0), checkpointInfo.rotation);
+                Debug.Log("After: " + checkpointInfo.position);
             }
         }
         isGrounded = currIsGrounded;
@@ -121,6 +143,7 @@ public class PlayerController : MonoBehaviour {
     private void Respawn() {
         transform.position = checkpointInfo.position;
         transform.rotation = checkpointInfo.rotation;
+        isRight = true;
     }
 
     private void OnDrawGizmosSelected() {
@@ -128,7 +151,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Checkpoint" && other.gameObject.transform != lastCheckpoint) {
+        if (other.gameObject.tag == "Checkpoint") {
             SetCheckpointInfo(other.gameObject.transform.position, other.gameObject.transform.rotation);
             Destroy(other.gameObject);
         }
