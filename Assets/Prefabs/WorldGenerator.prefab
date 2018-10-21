@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1927481954543386}
+  m_RootGameObject: {fileID: 1435763533081676}
   m_IsPrefabAsset: 1
---- !u!1 &1927481954543386
+--- !u!1 &1435763533081676
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4743452872559268}
-  - component: {fileID: 114834509096649818}
+  - component: {fileID: 4484661116812966}
+  - component: {fileID: 114806727333246358}
   m_Layer: 0
-  m_Name: MeshGenerator
+  m_Name: WorldGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4743452872559268
+--- !u!4 &4484661116812966
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927481954543386}
+  m_GameObject: {fileID: 1435763533081676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,26 +40,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114834509096649818
+--- !u!114 &114806727333246358
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1927481954543386}
+  m_GameObject: {fileID: 1435763533081676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8e088cd7c8f3d4391b3f3dc8f489e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a2358d16dca4b440b032e6cb0fd9ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshFile: {fileID: 102900000, guid: 1a782b6498713dc48bfd78762cf11492, type: 3}
-  meshName: Start
-  quadToInstantiate: {fileID: 1141501183495780, guid: ca710b1405760614cbe2567da0e896b0,
-    type: 2}
-  scale: {x: 0.4, y: 0.4, z: 0.4}
-  parent: {fileID: 0}
-  palette: {fileID: 2800000, guid: 45bef34d436000c41a43401dd87e015e, type: 3}
-  materials:
-  - {fileID: 2100000, guid: 591a4ef6205662148a1cd346274f2289, type: 2}
-  - {fileID: 2100000, guid: 78af482a245fcb04eab63d1e0aedbd84, type: 2}
-  - {fileID: 2100000, guid: 3cff043dc5fc682478b7a026bfcc2e0f, type: 2}
-  - {fileID: 2100000, guid: 0723f837ef7ad2743867574a1331805a, type: 2}
+  distanceToSpawn: 3.5
+  levelsForEachSide: 1
+  startLevel: {fileID: 1146740281455164, guid: c10c2e80381b5094db956e4f687a0c52, type: 2}
+  underLevel: {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
+  levels:
+  - {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
+  - {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
+  - {fileID: 1146740281455164, guid: c10c2e80381b5094db956e4f687a0c52, type: 2}
