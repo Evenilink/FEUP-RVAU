@@ -1,23 +1,16 @@
 ﻿using UnityEngine;
 
-public class Goomba : MonoBehaviour {
+public class Goomba : BaseEnemy {
 
-    [SerializeField] private float movSpeed;
-    [SerializeField] private bool startFacingRight = false;
-    [SerializeField] private LayerMask levelMask;
-
-    private void Start() {
-        if (!startFacingRight)
-            transform.rotation = Quaternion.Euler(0, 180, 0) * transform.rotation;
+    private void Awake() {
+        base.Awake();
     }
 
-    void Update () {
+    private void Update () {
         transform.position += transform.right * movSpeed * Time.deltaTime;
-        if (Physics.Raycast(transform.position, transform.right, 0.09f, levelMask))
+        bool obstacleDetected, canKeepMoving;
+        analyser.CheckObstacle(out obstacleDetected, out canKeepMoving);
+        if (!canKeepMoving || analyser.CheckAbism())
             Flip();
 	}
-
-    private void Flip() {
-        transform.rotation = Quaternion.Euler(0, 180, 0) * transform.rotation;
-    }
 }

@@ -5,11 +5,6 @@ public class PlayerController : MonoBehaviour {
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 0.04f;
     [SerializeField] private bool startFacingRight = true;
-    // Distance from the player that the raycast for obstacle detection starts.
-    [SerializeField] private float distFromPlayerAndAbism = 0.2f;
-    // Minimum distance from the player and an obstacle.
-    [SerializeField, Range(0.09f, 0.15f)] private float minDistToObstacle = 0.09f;
-    [SerializeField] private float lengthAbismRay = 3f;
     private bool isRight = true;
 
     [Header("Jump Settings")]
@@ -19,16 +14,16 @@ public class PlayerController : MonoBehaviour {
     private bool jumpPressed = false;
     private bool isGrounded = false;
 
-    [Header("Raycast")]
-    [SerializeField] private LayerMask levelMask;
+    [Header("Components")]
+    private LevelAnalyser analyser;
+    private Rigidbody rb;
 
     [Header("Defaults")]
-    private Rigidbody rb;
+    [SerializeField] private LayerMask levelMask;
     private enum RotateType { FLIP, CORNER }
     private const float ROTATE_FROM_RIGHT = -90f;
     private const float ROTATE_FLIP = 180F;
     private float lastHeight;
-
     private struct CheckpointInfo {
         public Vector3 position;
         public Quaternion rotation;
@@ -36,6 +31,7 @@ public class PlayerController : MonoBehaviour {
     private CheckpointInfo checkpointInfo;
 
     private void Start() {
+        analyser = GetComponent<LevelAnalyser>();
         rb = GetComponent<Rigidbody>();
         lastHeight = transform.position.y;
         if (!startFacingRight)
@@ -66,39 +62,17 @@ public class PlayerController : MonoBehaviour {
             RotatePlayer(ROTATE_FLIP);
 
         if (hInput != 0) {
-            bool obstacleDetected = false;
-            bool canMove = CalculateWallObstacle(out obstacleDetected);
-            if (canMove) {
+            bool obstacleDetected, canKeepMoving;
+            analyser.CheckObstacle(out obstacleDetected, out canKeepMoving);
+            if (canKeepMoving) {
                 // No need to calculate if there's an abism if we know there's an obstacle in front of the player.
-                if (!obstacleDetected)
-                    CalculateAbism();
+                if (!obstacleDetected && analyser.CheckAbism())
+                    RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
                 // Since we're rotating the character when he flips (instead of applying a negative scale) we're only interested in the absolute value of the input.
                 Vector3 horizontalMovement = transform.right * Mathf.Abs(hInput);
                 transform.position += horizontalMovement * movementSpeed * Time.deltaTime;
             }
         }
-    }
-
-    // Raycasts from a threshold to detect the end of the level.
-    // It it doesn't detect the level, it rotates the gameobject accordingly.
-    private bool CalculateWallObstacle(out bool obstacleDetected) {
-        RaycastHit hit;
-        Vector3 startPosition = transform.position;
-        Debug.DrawLine(startPosition, startPosition + transform.right * (distFromPlayerAndAbism + minDistToObstacle + 1f), Color.blue);
-        if (Physics.Raycast(startPosition, transform.right, out hit, distFromPlayerAndAbism + minDistToObstacle + 1f, levelMask)) {
-            obstacleDetected = true;
-            if (hit.distance <= minDistToObstacle)
-                return false;
-        }
-        else obstacleDetected = false;
-        return true;
-    }
-
-    private void CalculateAbism() {
-        Vector3 startPosition = transform.position + transform.right * distFromPlayerAndAbism;
-        Debug.DrawLine(startPosition, startPosition + -transform.up * lengthAbismRay, Color.red);
-        if (!Physics.Raycast(startPosition, -transform.up, lengthAbismRay, levelMask))
-            RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
     }
 
     // Rotates this gameobject by a 'rotateAmount'.
