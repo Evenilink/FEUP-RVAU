@@ -10,9 +10,8 @@ public class MeshGenerator : MonoBehaviour {
     [SerializeField] private GameObject quadToInstantiate;
     [SerializeField] private Vector3 scale = Vector3.one;
     [SerializeField] private GameObject parent = null;
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private Material material;
-    [SerializeField] private TextureData[] textureMapping;
+    [SerializeField] private Texture2D palette;
+    [SerializeField] private Material[] materials;
 
     public void GenerateMesh() {
         MeshDataset dataset = new MeshDataset(AssetDatabase.GetAssetPath(meshFile));
@@ -26,6 +25,7 @@ public class MeshGenerator : MonoBehaviour {
         for (int faceIdx = 0; faceIdx < dataset.numFaces; faceIdx++) {
             Vector4 face = dataset.faces[faceIdx];
             GameObject quad = Instantiate(quadToInstantiate, rootObject.transform, true);
+            quad.transform.parent = rootObject.transform;
 
             Vector3 normal = CalculateQuadNormal(dataset, quad, face);
             quad.transform.position = CalculateQuadPosition(dataset, quad, face);
@@ -78,32 +78,17 @@ public class MeshGenerator : MonoBehaviour {
     }
 
     private void ApplyMaterial(MeshDataset dataset, GameObject quad, Vector4 face, Vector3 normal) {
-        Vector3 color = dataset.colors[Mathf.RoundToInt(face[0])];
+        Color color = dataset.colors[Mathf.RoundToInt(face[0])];
         Renderer renderer = quad.GetComponentInChildren<Renderer>();
-        Material mat = Instantiate(material);
-
-        foreach (TextureData t in textureMapping) {
-            if (t.ColorEqual(color)) {
-                if (normal == Vector3.up) {
-                    mat.mainTexture = t.topTexture;
-                    break;
-                }
-                else if (normal == Vector3.down) {
-                    mat.mainTexture = t.bottomTexture;
-                    break;
-                }
-                else {
-                    mat.mainTexture = t.sideTexture;
-                    break;
-                }
+        
+        for (int i = 0; i < materials.Length; i++) {
+            Color paletteColor = palette.GetPixel(i, 0) * 255;
+            Debug.Log(paletteColor.r + " - " + paletteColor.g + " - " + paletteColor.b + " = " + color.r + " - " + color.g + " - " + color.b);
+            if (paletteColor.r == color.r && paletteColor.g == color.g && paletteColor.b == color.b) {
+                renderer.sharedMaterial = materials[i];
+                break;
             }
         }
-
-#if UNITY_EDITOR
-        renderer.sharedMaterial = mat;
-#else
-        renderer.material = mat;
-#endif
     }
 
     class MeshDataset {
@@ -111,7 +96,7 @@ public class MeshGenerator : MonoBehaviour {
         public int numFaces { get; private set; }
 
         public List<Vector3> vertices { get; private set; }
-        public List<Vector3> colors { get; private set; }
+        public List<Color> colors { get; private set; }
         public List<Vector4> faces { get; private set; }
 
         private StreamReader reader;
@@ -146,7 +131,7 @@ public class MeshGenerator : MonoBehaviour {
 
         private void InitVerticesAndColors() {
             vertices = new List<Vector3>();
-            colors = new List<Vector3>();
+            colors = new List<Color>();
             for (int i = 0; i < numVertices; i++) {
                 string line = reader.ReadLine();
                 string[] values = line.Split(' ');
@@ -158,7 +143,7 @@ public class MeshGenerator : MonoBehaviour {
                 int g = int.Parse(values[4]);
                 int b = int.Parse(values[5]);
                 Vector3 vertex = new Vector3(x, y, z);
-                Vector3 color = new Vector3(r, g, b);
+                Color color = new Color(r, g, b);
                 vertices.Add(vertex);
                 colors.Add(color);
             }
@@ -175,19 +160,6 @@ public class MeshGenerator : MonoBehaviour {
                 Vector4 face = new Vector4(x, y, z, w);
                 faces.Add(face);
             }
-        }
-    }
-
-    [System.Serializable]
-    public class TextureData {
-        public Color color;
-        public Texture2D sideTexture;
-        public Texture2D topTexture;
-        public Texture2D bottomTexture;
-
-        public bool ColorEqual(Vector3 c) {
-
-            return Mathf.RoundToInt(color.r * 255) == c.x && Mathf.RoundToInt(color.g * 255) == c.y && Mathf.RoundToInt(color.b * 255) == c.z;
         }
     }
 }
