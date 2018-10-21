@@ -15,13 +15,15 @@ public class MeshGenerator : MonoBehaviour {
 
     public void GenerateMesh() {
         MeshDataset dataset = new MeshDataset(AssetDatabase.GetAssetPath(meshFile));
+        Vector3 max = new Vector3(int.MinValue, int.MinValue, int.MinValue);
+        Vector3 min = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
 
         // Creates root object to hold all the instantiated quads
         GameObject rootObject = new GameObject();
         rootObject.name = meshName;
         
         if (parent != null) rootObject.transform.parent = parent.transform;
-
+        
         for (int faceIdx = 0; faceIdx < dataset.numFaces; faceIdx++) {
             Vector4 face = dataset.faces[faceIdx];
             GameObject quad = Instantiate(quadToInstantiate, rootObject.transform, true);
@@ -31,9 +33,16 @@ public class MeshGenerator : MonoBehaviour {
             quad.transform.position = CalculateQuadPosition(dataset, quad, face);
             quad.transform.localRotation = CalculateQuadRotation(normal);
             ApplyMaterial(dataset, quad, face, normal);
+
+            min = Vector3.Min(min, quad.transform.position);
+            max = Vector3.Max(max, quad.transform.position);
         }
 
         rootObject.transform.localScale = scale;
+        MeshBounds mb = rootObject.AddComponent<MeshBounds>();
+        
+        mb.min = Vector3.Scale(min, scale);
+        mb.max = Vector3.Scale(max, scale);
     }
 
     private Vector3 CalculateQuadNormal(MeshDataset dataset, GameObject quad, Vector4 face) {
@@ -83,14 +92,13 @@ public class MeshGenerator : MonoBehaviour {
         
         for (int i = 0; i < materials.Length; i++) {
             Color paletteColor = palette.GetPixel(i, 0) * 255;
-            Debug.Log(paletteColor.r + " - " + paletteColor.g + " - " + paletteColor.b + " = " + color.r + " - " + color.g + " - " + color.b);
             if (paletteColor.r == color.r && paletteColor.g == color.g && paletteColor.b == color.b) {
                 renderer.sharedMaterial = materials[i];
                 break;
             }
         }
     }
-
+    
     class MeshDataset {
         public int numVertices { get; private set; }
         public int numFaces { get; private set; }

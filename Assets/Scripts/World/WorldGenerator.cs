@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour {
-    [SerializeField] float distanceToSpawn = 3.5f;
+    
     [SerializeField] int levelsForEachSide = 1;
     [SerializeField] GameObject startLevel;
     [SerializeField] GameObject underLevel;
@@ -14,21 +14,21 @@ public class WorldGenerator : MonoBehaviour {
     private float nextDistance;
     
 	void Start () {
+        
         spawnedLevels = new List<GameObject>();
         Random.InitState(Random.Range(int.MinValue, int.MaxValue));
 
+        float distance = underLevel.GetComponent<MeshBounds>().GetMeshHeight();
         for (int i = 0; i < levelsForEachSide; i++) {
-            float height = (i + 1) * distanceToSpawn * -1;
+            float height = (i + 1) * distance * -1;
             spawnedLevels.Add(Instantiate(underLevel, new Vector3(0, height, 0), Quaternion.identity, transform));
         }
 
         spawnedLevels.Add(Instantiate(startLevel, transform));
+        nextDistance = startLevel.GetComponent<MeshBounds>().GetMeshHeight();
 
-        nextDistance = distanceToSpawn;
         for (int i = 0; i < levelsForEachSide; i++) {
             CreateNewLevel();
-            //float height = (i + 1) * distanceToSpawn;
-            //spawnedLevels.Add(Instantiate(getRandomLevel(), new Vector3(0, height, 0), Quaternion.identity, transform));
         }
 
 	}
@@ -43,7 +43,8 @@ public class WorldGenerator : MonoBehaviour {
         GameObject level = Instantiate(getRandomLevel(), transform);
         level.transform.localPosition = new Vector3(0, nextDistance, 0);
         spawnedLevels.Add(level);
-        nextDistance += distanceToSpawn;
+        nextDistance += level.GetComponent<MeshBounds>().GetMeshHeight(); ;
+        
 
         if (spawnedLevels.Count > levelsForEachSide * 2 + 1) {
             GameObject bottomLevel = spawnedLevels[0];
