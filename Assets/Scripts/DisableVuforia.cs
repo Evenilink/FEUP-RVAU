@@ -21,7 +21,7 @@ public class DisableVuforia : MonoBehaviour {
 	void Update () {
         if (disableVuforia) {
             float v = mouseSensitivity * Input.GetAxis("Mouse X");
-            levelRoot.transform.Rotate(0, 0, v);
+            levelRoot.transform.Rotate(0, v, 0);
 
         }
 	}
