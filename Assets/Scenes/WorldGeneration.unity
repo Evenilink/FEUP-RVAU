@@ -113,6 +113,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!21 &130189795
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Front_scaledMaterial
+
+    14066'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3053b76037ce423490b693186fb17fb9, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,15 +206,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!21 &194092211
+--- !u!21 &202660689
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Front_scaledMaterial
+  m_Name: 'cereals_box_bigger.Back_scaledMaterial
 
-    50406'
+    14066'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -200,7 +227,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3053b76037ce423490b693186fb17fb9, type: 3}
+        m_Texture: {fileID: 2800000, guid: ff9c083a140c48388485a408bf76da70, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -245,6 +272,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: startLevel
+      value: 
+      objectReference: {fileID: 1814149551202482, guid: 37648e71a72b4a7478f0cb1d0f241780,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 1814149551202482, guid: 37648e71a72b4a7478f0cb1d0f241780,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 1496480198845194, guid: 92c09f3855bd9574c969f528f697b859,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 1496480198845194, guid: 92c09f3855bd9574c969f528f697b859,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: underLevel
+      value: 
+      objectReference: {fileID: 1496480198845194, guid: 92c09f3855bd9574c969f528f697b859,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b3b396117a9bc34c95e0de861ccc9b4, type: 2}
   m_IsPrefabAsset: 0
@@ -435,15 +492,15 @@ Transform:
   m_Father: {fileID: 872153857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!21 &435932648
+--- !u!21 &420856252
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Right_scaledMaterial
+  m_Name: 'cereals_box_bigger.Left_scaledMaterial
 
-    50406'
+    14066'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -456,7 +513,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e8f2f08e1aaa4ffe89b10d8786a91a6d, type: 3}
+        m_Texture: {fileID: 2800000, guid: e63b5d47c7d44a0bb6b21cd546409cba, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -527,7 +584,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1015225987}
+  - {fileID: 202660689}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -606,6 +663,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4484661116812966, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
     type: 2}
   m_PrefabInternal: {fileID: 263958846}
+--- !u!21 &681192646
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Right_scaledMaterial
+
+    14066'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e8f2f08e1aaa4ffe89b10d8786a91a6d, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &872153854
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,33 +793,6 @@ Transform:
   m_Father: {fileID: 872153857}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1015225987
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Back_scaledMaterial
-
-    50406'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ff9c083a140c48388485a408bf76da70, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &1171333839
 Prefab:
   m_ObjectHideFlags: 0
@@ -852,7 +909,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 194092211}
+  - {fileID: 130189795}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1028,7 +1085,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 435932648}
+  - {fileID: 681192646}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1048,6 +1105,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1895387520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1864692049769594, guid: bf9164582ded215468fa05f684c0bdff,
+    type: 2}
+  m_PrefabInternal: {fileID: 1171333839}
+--- !u!114 &1895387527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895387520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1506965885a155a4aafa2f9395305765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0.04
+  startFacingRight: 1
+  jumpForce: 0.5
+  fallMultiplier: 1
+  lowJumpMultiplier: 0.2
+  levelMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1952773578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff,
@@ -1170,33 +1251,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootTransform: {fileID: 933517088}
   interpolationTime: 1
---- !u!21 &2069762216
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Left_scaledMaterial
-
-    50406'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e63b5d47c7d44a0bb6b21cd546409cba, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &2102853662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1316,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2069762216}
+  - {fileID: 420856252}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
