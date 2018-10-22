@@ -51,11 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2358d16dca4b440b032e6cb0fd9ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToSpawn: 3.5
   levelsForEachSide: 1
-  startLevel: {fileID: 1146740281455164, guid: c10c2e80381b5094db956e4f687a0c52, type: 2}
-  underLevel: {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
+  startLevel: {fileID: 1770111862118756, guid: aeaed1f41a5e9db48828b5c4b77da0be, type: 2}
+  underLevel: {fileID: 1677810420265806, guid: 92c09f3855bd9574c969f528f697b859, type: 2}
   levels:
-  - {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
-  - {fileID: 1812799531621076, guid: 410506807c156514094fdffda541e633, type: 2}
-  - {fileID: 1146740281455164, guid: c10c2e80381b5094db956e4f687a0c52, type: 2}
+  - {fileID: 1402580679515324, guid: 0f658f36c8fe1ca4fb396e328b50e637, type: 2}
+  - {fileID: 1406981830881396, guid: 647d313e63a35414a9495dedf7089e67, type: 2}
+  - {fileID: 1561602213782712, guid: fe95e00d40658ed42badd4cdbc753945, type: 2}

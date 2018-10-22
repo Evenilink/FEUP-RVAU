@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_StoneGrass
+  m_Name: M_I6_StoneGrass
   m_Shader: {fileID: 4800000, guid: 91e05243469adfe489bca4e8e7815dc3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
