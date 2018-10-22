@@ -8,7 +8,7 @@ public class PlayerMovementComponent : MovementComponent {
     private void Awake() {
         base.Awake();
         pc = GetComponent<PlayerController>();
-        lastHeight = transform.position.y;
+        lastHeight = transform.localPosition.y;
     }
 
     private void FixedUpdate() {
@@ -36,9 +36,10 @@ public class PlayerMovementComponent : MovementComponent {
     }
 
     protected override void OnReachedGround() {
-        if (transform.position.y > lastHeight) {
-            LevelScrollingManager.Instance().ScrollToHeight(transform.position.y - lastHeight);
-            lastHeight = transform.position.y;
+        Debug.Log("New height: " + transform.localPosition.y + " > Last Height: " + lastHeight);
+        if (transform.localPosition.y > lastHeight) {
+            LevelScrollingManager.Instance().ScrollHeight(-(transform.localPosition.y - lastHeight));
+            lastHeight = transform.localPosition.y;
             pc.SetCheckpointInfo(pc.GetCheckpointInfo().position - new Vector3(0, transform.position.y - lastHeight, 0), pc.GetCheckpointInfo().rotation);
         }
     }

@@ -15,7 +15,7 @@ public class LevelScrollingManager : MonoBehaviour {
     }
 
     // Method invoked by the object that calls the singleton instance, in order to scroll the level.
-    public void ScrollToHeight(float height) {
+    public void ScrollHeight(float height) {
         StopAllCoroutines();
         StartCoroutine(ScrollToHeightCoroutine(height));
     }
@@ -25,10 +25,10 @@ public class LevelScrollingManager : MonoBehaviour {
     private IEnumerator ScrollToHeightCoroutine(float height) {
         float startTime = Time.time;
         float fracComplete = 0f;
-        Vector3 finalPosition = new Vector3(rootTransform.position.x, rootTransform.position.y - height, rootTransform.position.z);
+        Vector3 finalPosition = new Vector3(rootTransform.position.x, rootTransform.position.y + height, rootTransform.position.z);
         while (fracComplete < 1) {
             fracComplete = (Time.time - startTime) / interpolationTime;
-            rootTransform.position = Vector3.Slerp(rootTransform.position, finalPosition, fracComplete);
+            rootTransform.position = Vector3.Lerp(rootTransform.position, finalPosition, fracComplete);
             yield return null;
         }
     }
