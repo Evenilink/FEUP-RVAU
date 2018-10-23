@@ -66,6 +66,14 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy") {
+            if (collision.gameObject.tag == "Bullet")
+                Destroy(collision.gameObject);
+            Respawn();
+        }
+    }
+
     /*public void OnButtonPressed(VirtualButtonBehaviour vb) {
         Debug.Log("Button " + vb.VirtualButtonName + " pressed!.");
         if (vb.VirtualButtonName.Contains("Left")) {
