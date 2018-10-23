@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Vuforia;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,10 +13,16 @@ public class PlayerController : MonoBehaviour {
         public Quaternion rotation;
     };
 
+    // public GameObject leftBtn;
+    // public GameObject rightBtn;
+    private float hInput = 0f;
+
     private void Start() {
         movComp = GetComponent<PlayerMovementComponent>();
         // If player dies before reaching any checkpoint, it respawns at the start of the level.
         SetCheckpointInfo(transform.position, transform.rotation);
+        // leftBtn.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+        // rightBtn.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
     }
 
     private void Update() {
@@ -58,4 +65,18 @@ public class PlayerController : MonoBehaviour {
             Destroy(other.gameObject);
         }
     }
+
+    /*public void OnButtonPressed(VirtualButtonBehaviour vb) {
+        Debug.Log("Button " + vb.VirtualButtonName + " pressed!.");
+        if (vb.VirtualButtonName.Contains("Left")) {
+            hInput = -1f;
+        } else if (vb.VirtualButtonName.Contains("Right")) {
+            hInput = 1f;
+        }
+    }
+
+    public void OnButtonReleased(VirtualButtonBehaviour vb) {
+        Debug.Log("Button " + vb.VirtualButtonName + " released!.");
+        hInput = 0;
+    }*/
 }

@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
-        <ImageTarget name="rocks" size="800.000000 450.000000"/>
-        <ImageTarget name="cereals_box_bigger.Back" size="1.900000 2.601228"/>
+        <ImageTarget name="buttons" size="1.500000 0.726225"/>
         <ImageTarget name="cereals_box_bigger.Left" size="0.450000 2.605017"/>
+        <ImageTarget name="cereals_box_bigger.Back" size="1.900000 2.601228"/>
         <ImageTarget name="cereals_box_bigger.Right" size="0.450000 2.605017"/>
         <ImageTarget name="cereals_box_bigger.Front" size="1.900000 2.601228"/>
-        <ImageTarget name="cereals_box.Back" size="0.190000 0.260123"/>
-        <ImageTarget name="cereals_box.Left" size="0.045000 0.259603"/>
-        <ImageTarget name="cereals_box.Right" size="0.045000 0.259603"/>
-        <ImageTarget name="cereals_box.Front" size="0.190000 0.260123"/>
         <MultiTarget name="cereals_box_bigger">
             <Part name="cereals_box_bigger.Left" translation="-0.949999988079071 0 0" rotation="AD: 0 1 0 -90"/>
             <Part name="cereals_box_bigger.Right" translation="0.949999988079071 0 0" rotation="AD: 0 1 0 90"/>
             <Part name="cereals_box_bigger.Front" translation="0 0 0.22499999403953552" rotation="AD: 1 0 0 0"/>
             <Part name="cereals_box_bigger.Back" translation="0 0 -0.22499999403953552" rotation="AD: 0 1 0 180"/>
-        </MultiTarget>
-        <MultiTarget name="cereals_box">
-            <Part name="cereals_box.Left" translation="-0.0949999988079071 0 0" rotation="AD: 0 1 0 -90"/>
-            <Part name="cereals_box.Right" translation="0.0949999988079071 0 0" rotation="AD: 0 1 0 90"/>
-            <Part name="cereals_box.Front" translation="0 0 0.02250000089406967" rotation="AD: 1 0 0 0"/>
-            <Part name="cereals_box.Back" translation="0 0 -0.02250000089406967" rotation="AD: 0 1 0 180"/>
         </MultiTarget>
     </Tracking>
 </QCARConfig>
