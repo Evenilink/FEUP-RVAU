@@ -113,6 +113,101 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!21 &38822552
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Right_scaledMaterial
+
+    160958'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8c5c59d03c4740f2ab46851239f66e79, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+--- !u!21 &61915302
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Front_scaledMaterial
+
+    160958'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 46cae94c336746bf95f591553d2c2369, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+--- !u!1 &132023182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132023183}
+  - component: {fileID: 132023184}
+  m_Layer: 11
+  m_Name: Kill Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132023183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132023182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1459702579}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &132023184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132023182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98, y: 0.2, z: 0.98}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +274,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &174047925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4775685750592976, guid: aeaed1f41a5e9db48828b5c4b77da0be,
+    type: 2}
+  m_PrefabInternal: {fileID: 274820084}
+--- !u!1001 &193382968
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 174047925}
+    m_Modifications:
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.6731834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.24672
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.9842428
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_RootOrder
+      value: 994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114701548534756834, guid: ef05ae6a25f7a484fb0f6941ada4d3f1,
+        type: 2}
+      propertyPath: movSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.24999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.24999993
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef05ae6a25f7a484fb0f6941ada4d3f1, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &263958846
 Prefab:
   m_ObjectHideFlags: 0
@@ -266,7 +429,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1770111862118756, guid: aeaed1f41a5e9db48828b5c4b77da0be, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeaed1f41a5e9db48828b5c4b77da0be, type: 2}
@@ -564,7 +727,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1899234120}
+  - {fileID: 1840482984}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -778,7 +941,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableVuforia: 1
   levelRoot: {fileID: 933517087}
-  mouseSensitivity: 10
+  mouseSensitivity: 0
+--- !u!21 &925016430
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Left_scaledMaterial
+
+    160958'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d7c3a70a7f124e9099f15bf1d92191d8, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &933517087
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +999,64 @@ Transform:
   m_Father: {fileID: 872153857}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1004224776
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 174047925}
+    m_Modifications:
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.2309332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.1250001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.7210078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_RootOrder
+      value: 995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f84954b3cbff4e4395f7d86f7019b41, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!4 &1119502501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4484661116812966, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
@@ -890,7 +1138,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1824501861}
+  - {fileID: 61915302}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -910,15 +1158,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!21 &1753551362
+--- !u!4 &1458573723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4051348853980528, guid: 8f84954b3cbff4e4395f7d86f7019b41,
+    type: 2}
+  m_PrefabInternal: {fileID: 1004224776}
+--- !u!4 &1459702579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4944507858696156, guid: ef05ae6a25f7a484fb0f6941ada4d3f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 193382968}
+--- !u!21 &1840482984
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Right_scaledMaterial
+  m_Name: 'cereals_box_bigger.Back_scaledMaterial
 
-    17540'
+    160958'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -931,34 +1189,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8c5c59d03c4740f2ab46851239f66e79, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
---- !u!21 &1824501861
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Front_scaledMaterial
-
-    17540'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 46cae94c336746bf95f591553d2c2369, type: 3}
+        m_Texture: {fileID: 2800000, guid: bd85d1b887514614b9eb12189df0206c, type: 3}
         m_Scale: {x: -1, y: -1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1029,7 +1260,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1753551362}
+  - {fileID: 38822552}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1049,60 +1280,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!21 &1887524561
-Material:
-  serializedVersion: 6
+--- !u!1 &1913472791
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Left_scaledMaterial
-
-    17540'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d7c3a70a7f124e9099f15bf1d92191d8, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
---- !u!21 &1899234120
-Material:
   serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913472792}
+  - component: {fileID: 1913472793}
+  m_Layer: 11
+  m_Name: Kill Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1913472792
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Back_scaledMaterial
-
-    17540'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bd85d1b887514614b9eb12189df0206c, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_GameObject: {fileID: 1913472791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1458573723}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1913472793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1913472791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98, y: 0.2, z: 0.98}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1956953086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1489,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1887524561}
+  - {fileID: 925016430}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

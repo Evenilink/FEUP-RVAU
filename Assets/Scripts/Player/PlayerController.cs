@@ -53,6 +53,13 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "YKillZone")
             GameMode.Instance().Restart();
+        else if (other.gameObject.tag == "KillCollider") {
+            BaseEnemy enemy = other.gameObject.transform.parent.GetComponent<BaseEnemy>();
+            if (enemy != null) {
+                Debug.Log("Enemy killed.");
+                enemy.Die();
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {
