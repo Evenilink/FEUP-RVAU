@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject, aliveTime);
     }
 	
-	void Update () {
+	private void Update () {
         transform.position += transform.right * moveSpeed * Time.deltaTime;
 	}
 }

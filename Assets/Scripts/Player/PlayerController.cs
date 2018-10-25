@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Components")]
     private PlayerMovementComponent movComp;
+    private Rigidbody rb;
 
     [Header("Defaults")]
     private Vector3 startPosition;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour {
         startPosition = transform.position;
         startRotation = transform.rotation;
         movComp = GetComponent<PlayerMovementComponent>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         if (OnPlayerDie != null)
             OnPlayerDie();
 
+        rb.velocity = Vector3.zero;
         transform.position = startPosition;
         transform.rotation = startRotation;
         movComp.SetIsRight(true);
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour {
                 Debug.Log("Enemy killed.");
                 enemy.Die();
             }
+            else Destroy(other.gameObject.transform.parent.gameObject);
         }
     }
 
