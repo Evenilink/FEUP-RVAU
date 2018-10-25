@@ -35,17 +35,9 @@ public class PlayerMovementComponent : MovementComponent {
 
     protected override void OnReachedGround() {
         float lastHeight = LevelScrollingManager.Instance().GetLastHeight();
-        if (transform.localPosition.y > lastHeight) {
-            Debug.Log(lastHeight);
+        if (transform.localPosition.y > lastHeight)
             LevelScrollingManager.Instance().ScrollHeight(-(transform.localPosition.y - lastHeight));
-            // SetLastHeight(transform.localPosition.y);
-            // pc.SetCheckpointInfo(pc.GetCheckpointInfo().position - new Vector3(0, transform.localPosition.y - lastHeight, 0), pc.GetCheckpointInfo().rotation);
-        }
     }
-
-    /*public void SetLastHeight(float checkPointY) {
-        lastHeight = checkPointY;
-    }*/
     
     public void SetIsRight(bool value) {
         isRight = value;
