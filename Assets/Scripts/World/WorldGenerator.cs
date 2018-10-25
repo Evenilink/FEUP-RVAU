@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour {
@@ -12,9 +11,28 @@ public class WorldGenerator : MonoBehaviour {
     List<GameObject> spawnedLevels;
     Random random;
     private float nextDistance;
-    
-	void Start () {
-        
+
+    private static WorldGenerator instance;
+
+    private void Awake() {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+        else instance = this;
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            CreateNewLevel();
+        }
+    }
+
+    public static WorldGenerator Instance() {
+        return instance;
+    }
+
+    public void GenerateStart() {
+        DestroyLoadedLevels();
+
         spawnedLevels = new List<GameObject>();
         Random.InitState(Random.Range(int.MinValue, int.MaxValue));
 
@@ -30,12 +48,12 @@ public class WorldGenerator : MonoBehaviour {
         for (int i = 0; i < levelsForEachSide; i++) {
             CreateNewLevel();
         }
+    }
 
-	}
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            CreateNewLevel();
+    private void DestroyLoadedLevels() {
+        if (transform.childCount > 0) {
+            for (int i = 0; i < transform.childCount; i++)
+                Destroy(transform.GetChild(i).gameObject);
         }
     }
 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4035233614137874}
   - component: {fileID: 33035199602483444}
   - component: {fileID: 23648632961980744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4200907947788470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4510268592910568}
   - component: {fileID: 33780523307732614}
   - component: {fileID: 23080401932723694}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114112978346165898}
   - component: {fileID: 114060592356582554}
   - component: {fileID: 114983622290991324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shooter Shell
   m_TagString: Enemy
   m_Icon: {fileID: 0}

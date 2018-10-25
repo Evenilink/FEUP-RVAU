@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Vuforia;
 
 public class PlayerController : MonoBehaviour {
 
@@ -7,22 +6,16 @@ public class PlayerController : MonoBehaviour {
     private PlayerMovementComponent movComp;
 
     [Header("Defaults")]
-    private CheckpointInfo checkpointInfo;
-    public struct CheckpointInfo {
-        public Vector3 position;
-        public Quaternion rotation;
-    };
+    private Vector3 startPosition;
+    private Quaternion startRotation;
 
-    // public GameObject leftBtn;
-    // public GameObject rightBtn;
-    private float hInput = 0f;
+    public delegate void PlayerDie();
+    public static PlayerDie OnPlayerDie;
 
-    private void Start() {
+    private void Awake() {
+        startPosition = transform.position;
+        startRotation = transform.rotation;
         movComp = GetComponent<PlayerMovementComponent>();
-        // If player dies before reaching any checkpoint, it respawns at the start of the level.
-        SetCheckpointInfo(transform.position, transform.rotation);
-        // leftBtn.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
-        // rightBtn.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
     }
 
     private void Update() {
@@ -39,20 +32,18 @@ public class PlayerController : MonoBehaviour {
         }
         else if (movComp.HoldingJump())
             movComp.SetHoldingJump(false);
-    }
 
-    public void SetCheckpointInfo(Vector3 position, Quaternion rotation) {
-        checkpointInfo.position = position;
-        checkpointInfo.rotation = rotation;
-    }
-
-    public CheckpointInfo GetCheckpointInfo() {
-        return checkpointInfo;
+        if (Input.GetKeyDown(KeyCode.Q))
+            Respawn();
     }
 
     public void Respawn() {
-        transform.position = checkpointInfo.position;
-        transform.rotation = checkpointInfo.rotation;
+        if (OnPlayerDie != null)
+            OnPlayerDie();
+
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        movComp.SetIsRight(true);
     }
 
     private void OnDrawGizmosSelected() {
@@ -60,31 +51,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Checkpoint") {
-            SetCheckpointInfo(other.gameObject.transform.position, other.gameObject.transform.rotation);
-            Destroy(other.gameObject);
-        }
+        if (other.gameObject.tag == "YKillZone")
+            GameMode.Instance().Restart();
     }
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy") {
             if (collision.gameObject.tag == "Bullet")
                 Destroy(collision.gameObject);
-            Respawn();
+            GameMode.Instance().Restart();
         }
     }
-
-    /*public void OnButtonPressed(VirtualButtonBehaviour vb) {
-        Debug.Log("Button " + vb.VirtualButtonName + " pressed!.");
-        if (vb.VirtualButtonName.Contains("Left")) {
-            hInput = -1f;
-        } else if (vb.VirtualButtonName.Contains("Right")) {
-            hInput = 1f;
-        }
-    }
-
-    public void OnButtonReleased(VirtualButtonBehaviour vb) {
-        Debug.Log("Button " + vb.VirtualButtonName + " released!.");
-        hInput = 0;
-    }*/
 }

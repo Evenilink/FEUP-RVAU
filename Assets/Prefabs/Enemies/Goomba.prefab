@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4585255982427800}
   - component: {fileID: 33206951780904572}
   - component: {fileID: 23372747947634124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 54831326681813640}
   - component: {fileID: 114701548534756834}
   - component: {fileID: 114016096816160424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Goomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4866828270959192}
   - component: {fileID: 33660434511847488}
   - component: {fileID: 23134021570466008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
