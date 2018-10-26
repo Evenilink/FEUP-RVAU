@@ -2,13 +2,15 @@
 using System.Collections;
 using System;
 using UnityEngine.Networking;
+using UnityEditor;
 
 public class WeatherManager : MonoBehaviour {
 
     private const string API_KEY = "72bf022fc5e268985f4b9f9af3f7ac19";
-    private const string cityID = "6458924";
+    private const string cityID = "6458924";    // This is Porto.
 
     void Start() {
+        // TODO: instead of hardcoding the city ID, we need to get that info from the mobile device.
         StartCoroutine(GetWeather(CheckWeatherStatus));
     }
 
@@ -42,6 +44,8 @@ public class WeatherManager : MonoBehaviour {
             case "Clear":
                 break;
             case "Clouds":
+                UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Weather/Cloud System.prefab", typeof(CloudSystem));
+                Instantiate(prefab, null);
                 break;
             default: break;
         }
