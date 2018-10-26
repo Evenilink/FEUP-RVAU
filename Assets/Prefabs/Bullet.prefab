@@ -152,3 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aliveTime: 10
   moveSpeed: 1
+  axisToMove: 2
