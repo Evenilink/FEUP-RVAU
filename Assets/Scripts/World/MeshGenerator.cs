@@ -14,7 +14,8 @@ public class MeshGenerator : MonoBehaviour {
     [SerializeField] private Material[] materials;
 
     public void GenerateMesh() {
-        MeshDataset dataset = new MeshDataset(AssetDatabase.GetAssetPath(meshFile));
+        MeshDataset dataset = new MeshDataset(meshFile.name);
+        //MeshDataset dataset = new MeshDataset(AssetDatabase.GetAssetPath(meshFile));
         Vector3 max = new Vector3(int.MinValue, int.MinValue, int.MinValue);
         Vector3 min = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
 
