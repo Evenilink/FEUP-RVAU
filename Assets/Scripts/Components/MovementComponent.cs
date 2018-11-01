@@ -5,7 +5,6 @@ public class MovementComponent : MonoBehaviour {
 
     [Header("Movement Settings")]
     [SerializeField] protected float movementSpeed = 0.04f;
-    [SerializeField] protected bool startFacingRight = true;
     protected bool isRight = true;
 
     [Header("Jump Settings")]
@@ -14,6 +13,10 @@ public class MovementComponent : MonoBehaviour {
     [SerializeField] protected float lowJumpMultiplier;
     protected bool isGrounded = false;
     protected bool holdingJump = false;
+
+    [Header("Grounded Settings")]
+    [SerializeField] protected float distGroundFromCenter = 0.03f;
+    [SerializeField] protected float groundCheckRadious = 0.05f;
 
     [SerializeField] protected LayerMask levelMask;
     protected enum RotateType { FLIP, CORNER }
@@ -26,8 +29,6 @@ public class MovementComponent : MonoBehaviour {
     protected void Awake() {
         analyser = GetComponent<LevelAnalyser>();
         rb = GetComponent<Rigidbody>();
-        if (!startFacingRight)
-            RotatePlayer(ROTATE_FLIP);
     }
 
     protected void FixedUpdate() {
@@ -55,7 +56,11 @@ public class MovementComponent : MonoBehaviour {
     }
 
     protected bool CheckIsGrounded() {
-        return Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f, levelMask) && rb.velocity.y <= 0 && rb.velocity.y >= -0.1f;
+        return Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, distGroundFromCenter, 0), groundCheckRadious, levelMask) && rb.velocity.y <= 0 && rb.velocity.y >= -0.1f;
+    }
+
+    private void OnDrawGizmosSelected() {
+        DebugExtension.DebugCapsule(transform.position, transform.position - new Vector3(0, distGroundFromCenter, 0), groundCheckRadious);
     }
 
     public bool IsGrounded() {

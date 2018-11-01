@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Defaults")]
     private Vector3 startPosition;
     private Quaternion startRotation;
+    private Animator anim;
 
     public delegate void PlayerDie();
     public static PlayerDie OnPlayerDie;
@@ -18,12 +19,14 @@ public class PlayerController : MonoBehaviour {
         startRotation = transform.rotation;
         movComp = GetComponent<PlayerMovementComponent>();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update() {
         // Movement.
         float hInput = Input.GetAxis("Horizontal");
         movComp.Move(hInput);
+        anim.SetFloat("hInput", Mathf.Abs(hInput));
 
         // Jump.
         if (Input.GetButtonDown("Jump") && movComp.IsGrounded())
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour {
         }
         else if (movComp.HoldingJump())
             movComp.SetHoldingJump(false);
+        anim.SetBool("jump", !movComp.IsGrounded());
 
         if (Input.GetKeyDown(KeyCode.Q))
             Respawn();
@@ -47,10 +51,6 @@ public class PlayerController : MonoBehaviour {
         transform.position = startPosition;
         transform.rotation = startRotation;
         movComp.SetIsRight(true);
-    }
-
-    private void OnDrawGizmosSelected() {
-        DebugExtension.DebugCapsule(transform.position, transform.position - new Vector3(0, 0.03f, 0), 0.05f);
     }
 
     private void OnTriggerEnter(Collider other) {

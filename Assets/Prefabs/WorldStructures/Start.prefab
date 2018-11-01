@@ -88173,10 +88173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  startFacingRight: 1
   jumpForce: 4
   fallMultiplier: 1.005
   lowJumpMultiplier: 1
+  distGroundFromCenter: 0.03
+  groundCheckRadious: 0.05
   levelMask:
     serializedVersion: 2
     m_Bits: 512
