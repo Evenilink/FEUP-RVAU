@@ -4,6 +4,9 @@ public class PlayerMovementComponent : MovementComponent {
 
     private PlayerController pc;
 
+    public delegate void HitGround(float localPositionY);
+    public static HitGround OnHitGround;
+
     private void Awake() {
         base.Awake();
         pc = GetComponent<PlayerController>();
@@ -34,9 +37,12 @@ public class PlayerMovementComponent : MovementComponent {
     }
 
     protected override void OnReachedGround() {
-        float lastHeight = LevelScrollingManager.Instance().GetLastHeight();
+        if (OnHitGround != null)
+            OnHitGround(transform.localPosition.y);
+
+        /*float lastHeight = LevelScrollingManager.Instance().GetLastHeight();
         if (transform.localPosition.y > lastHeight)
-            LevelScrollingManager.Instance().ScrollHeight(-(transform.localPosition.y - lastHeight));
+            LevelScrollingManager.Instance().ScrollHeight(-(transform.localPosition.y - lastHeight));*/
     }
     
     public void SetIsRight(bool value) {

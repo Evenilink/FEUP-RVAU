@@ -22,6 +22,8 @@ public class LevelScrollingManager : MonoBehaviour {
         startHeight = playerTransform.localPosition.y;
         lastHeight = startHeight;
         startPosition = transform.position;
+        PlayerController.OnPlayerDie += ResetHeight;
+        PlayerMovementComponent.OnHitGround += ScrollHeight;
     }
 
     public void ResetHeight() {
@@ -32,10 +34,17 @@ public class LevelScrollingManager : MonoBehaviour {
     // Method invoked by the object that calls the singleton instance, in order to scroll the level.
     // It scrolls 'height' units.
     public void ScrollHeight(float height) {
+        if (height > lastHeight) {
+            float heightToScroll = -(height - lastHeight);
+            lastHeight -= heightToScroll;
+            StopAllCoroutines();
+            StartCoroutine(ScrollHeightCoroutine(heightToScroll));
+        }
+
         // height is always negative, since we want to scroll down, so we turn it positive to accumulate in the last height.
-        lastHeight -= height;
+        /*lastHeight -= height;
         StopAllCoroutines();
-        StartCoroutine(ScrollHeightCoroutine(height));
+        StartCoroutine(ScrollHeightCoroutine(height));*/
     }
 
     // Coroutine to spherically interpolate the level.
