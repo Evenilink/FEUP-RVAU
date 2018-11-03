@@ -22,11 +22,10 @@ public class LevelScrollingManager : MonoBehaviour {
         startHeight = playerTransform.localPosition.y;
         lastHeight = startHeight;
         startPosition = transform.position;
-        PlayerController.OnPlayerDie += ResetHeight;
         PlayerMovementComponent.OnHitGround += ScrollHeight;
     }
 
-    public void ResetHeight() {
+    public void Restart() {
         lastHeight = startHeight;
         rootTransform.position = startPosition;
     }
@@ -66,5 +65,9 @@ public class LevelScrollingManager : MonoBehaviour {
 
     public float GetLastHeight() {
         return lastHeight;
+    }
+
+    private void OnDestroy() {
+        PlayerMovementComponent.OnHitGround -= ScrollHeight;
     }
 }

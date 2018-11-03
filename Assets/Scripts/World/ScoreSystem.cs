@@ -20,7 +20,6 @@ public class ScoreSystem : MonoBehaviour {
     private void Start() {
         lastHeight = playerTransform.localPosition.y;
         PlayerMovementComponent.OnHitGround += CalculateScore;
-        PlayerController.OnPlayerDie += OnPlayerDieHandler;
     }
 
     private void CalculateScore(float newHeight) {
@@ -28,7 +27,7 @@ public class ScoreSystem : MonoBehaviour {
             SetNewScore(newHeight, score + 1);
     }
 
-    private void OnPlayerDieHandler() {
+    public void Restart() {
         SetNewScore(playerTransform.localPosition.y, 0);
     }
 
@@ -36,5 +35,13 @@ public class ScoreSystem : MonoBehaviour {
         lastHeight = newHeight;
         score = newScore;
         scoreText.text = score.ToString();
+    }
+
+    public static ScoreSystem Instance() {
+        return instance;
+    }
+
+    private void OnDestroy() {
+        PlayerMovementComponent.OnHitGround -= CalculateScore;
     }
 }

@@ -44,9 +44,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Respawn() {
-        if (OnPlayerDie != null)
-            OnPlayerDie();
-
         rb.velocity = Vector3.zero;
         transform.position = startPosition;
         transform.rotation = startRotation;
@@ -56,21 +53,17 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "YKillZone")
             GameMode.Instance().Restart();
-        else if (other.gameObject.tag == "KillCollider") {
-            BaseEnemy enemy = other.gameObject.transform.parent.GetComponent<BaseEnemy>();
-            if (enemy != null) {
-                Debug.Log("Enemy killed.");
+        else if (other.gameObject.tag == "Enemy") {
+            BaseEnemy enemy = other.gameObject.GetComponent<BaseEnemy>();
+            if (enemy != null)
                 enemy.Die();
-            }
-            else Destroy(other.gameObject.transform.parent.gameObject);
         }
+        else if (other.gameObject.tag == "Bullet")
+            Destroy(other.gameObject);
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy") {
-            if (collision.gameObject.tag == "Bullet")
-                Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
             GameMode.Instance().Restart();
-        }
     }
 }
