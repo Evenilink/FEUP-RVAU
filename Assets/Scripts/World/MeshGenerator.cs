@@ -40,10 +40,10 @@ public class MeshGenerator : MonoBehaviour {
         }
 
         rootObject.transform.localScale = scale;
-        MeshBounds mb = rootObject.AddComponent<MeshBounds>();
+        MeshProperties mp = rootObject.AddComponent<MeshProperties>();
         
-        mb.min = Vector3.Scale(min, scale);
-        mb.max = Vector3.Scale(max, scale);
+        mp.min = Vector3.Scale(min, scale);
+        mp.max = Vector3.Scale(max, scale);
     }
 
     private Vector3 CalculateQuadNormal(MeshDataset dataset, GameObject quad, Vector4 face) {
