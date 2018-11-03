@@ -63,7 +63,6 @@ public class WorldGenerator : MonoBehaviour {
         spawnedLevels.Add(level);
         nextDistance += level.GetComponent<MeshProperties>().GetMeshHeight(); ;
         
-
         if (spawnedLevels.Count > levelsForEachSide * 2 + 1) {
             GameObject bottomLevel = spawnedLevels[0];
             spawnedLevels.RemoveAt(0);

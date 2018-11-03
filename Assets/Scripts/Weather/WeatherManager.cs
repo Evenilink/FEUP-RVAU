@@ -11,7 +11,6 @@ public class WeatherManager : MonoBehaviour {
     private const int accuracy = 500;
     private const int updateDistance = 1000;
     [SerializeField] private int maxTimeOut = 10;
-    private const string cityID = "6458924";    // This is Porto.
     [SerializeField] private GameObject cloudSystem;
 
     void Start() {
