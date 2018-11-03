@@ -39,10 +39,6 @@ public class PlayerMovementComponent : MovementComponent {
     protected override void OnReachedGround() {
         if (OnHitGround != null)
             OnHitGround(transform.localPosition.y);
-
-        /*float lastHeight = LevelScrollingManager.Instance().GetLastHeight();
-        if (transform.localPosition.y > lastHeight)
-            LevelScrollingManager.Instance().ScrollHeight(-(transform.localPosition.y - lastHeight));*/
     }
     
     public void SetIsRight(bool value) {

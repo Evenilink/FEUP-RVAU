@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreSystem : MonoBehaviour {
 
+    [SerializeField] private float quadHeight = 0.35f;
     [SerializeField] private Text scoreText;
     [SerializeField] private Transform playerTransform;
 
@@ -23,7 +24,7 @@ public class ScoreSystem : MonoBehaviour {
     }
 
     private void CalculateScore(float newHeight) {
-        if (newHeight > lastHeight)
+        if (newHeight > lastHeight + quadHeight)
             SetNewScore(newHeight, score + 1);
     }
 
