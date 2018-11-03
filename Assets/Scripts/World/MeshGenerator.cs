@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEditor;
 
 public class MeshGenerator {
     private GameObject quadToInstantiate;
@@ -44,6 +42,11 @@ public class MeshGenerator {
         
         mp.min = Vector3.Scale(min, scale);
         mp.max = Vector3.Scale(max, scale);
+
+        rootObject.tag = "LevelRoot";
+        BoxCollider nextLevelTrigger = rootObject.AddComponent<BoxCollider>();
+        nextLevelTrigger.size = new Vector3(10, 2, 10);
+        nextLevelTrigger.isTrigger = true;
 
         return rootObject;
     }

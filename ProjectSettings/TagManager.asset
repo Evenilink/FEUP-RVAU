@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - YKillZone
   - KillCollider
+  - LevelRoot
   layers:
   - Default
   - TransparentFX

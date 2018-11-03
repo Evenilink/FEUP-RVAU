@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour {
         }
         else if (other.gameObject.tag == "Bullet")
             Destroy(other.gameObject);
+        else if (other.gameObject.tag == "LevelRoot") {
+            WorldGenerator.Instance().CreateNewLevel();
+            Destroy(other.gameObject.GetComponent<BoxCollider>());
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {

@@ -12805,6 +12805,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: startLevel
+      value: 
+      objectReference: {fileID: 1997254718949302, guid: aeaed1f41a5e9db48828b5c4b77da0be,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: underLevel
+      value: 
+      objectReference: {fileID: 1689043592590114, guid: 92c09f3855bd9574c969f528f697b859,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 1884304599452768, guid: 0f658f36c8fe1ca4fb396e328b50e637,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 1379294603530386, guid: 647d313e63a35414a9495dedf7089e67,
+        type: 2}
+    - target: {fileID: 114806727333246358, guid: 6b3b396117a9bc34c95e0de861ccc9b4,
+        type: 2}
+      propertyPath: levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 1600010775402968, guid: fe95e00d40658ed42badd4cdbc753945,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b3b396117a9bc34c95e0de861ccc9b4, type: 2}
   m_IsPrefabAsset: 0
@@ -18055,6 +18085,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 390543211}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
+--- !u!21 &392114164
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Right_scaledMaterial
+
+    22694'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8c5c59d03c4740f2ab46851239f66e79, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &392237296
 GameObject:
   m_ObjectHideFlags: 0
@@ -19435,161 +19492,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 425368909}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!43 &427673949
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: ImageTargetMesh52332
-  serializedVersion: 9
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 6
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 4
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.24207501}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200020001000300
-  m_VertexData:
-    serializedVersion: 2
-    m_VertexCount: 4
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 128
-    _typelessdata: 000000bf0000000083e277be000000000000803f000000000000000000000000000000bf0000000083e2773e000000000000803f00000000000000000000803f0000003f0000000083e277be000000000000803f000000000000803f000000000000003f0000000083e2773e000000000000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0, z: 0.24207501}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
 --- !u!1 &429309165
 GameObject:
   m_ObjectHideFlags: 0
@@ -26985,7 +26887,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 732977964}
+  - {fileID: 869126049}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29023,33 +28925,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 612575437}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!21 &615399915
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Front_scaledMaterial
-
-    52108'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 46cae94c336746bf95f591553d2c2369, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &617261703
 GameObject:
   m_ObjectHideFlags: 0
@@ -33742,33 +33617,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 732191825}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!21 &732977964
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Back_scaledMaterial
-
-    52108'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bd85d1b887514614b9eb12189df0206c, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &733933796
 GameObject:
   m_ObjectHideFlags: 0
@@ -34597,6 +34445,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 753286509}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
+--- !u!21 &753546237
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'buttonsMaterial
+
+    27834'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 382df0931dac416084de63c1135893e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &755440666
 GameObject:
   m_ObjectHideFlags: 0
@@ -36107,7 +35982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &793736205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39064,6 +38939,188 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 866402922}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
+--- !u!43 &866816352
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ImageTargetMesh27824
+  serializedVersion: 9
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0, z: 0.24207501}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200020001000300
+  m_VertexData:
+    serializedVersion: 2
+    m_VertexCount: 4
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 128
+    _typelessdata: 000000bf0000000083e277be000000000000803f000000000000000000000000000000bf0000000083e2773e000000000000803f00000000000000000000803f0000003f0000000083e277be000000000000803f000000000000803f000000000000003f0000000083e2773e000000000000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0, z: 0.24207501}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimized: 0
+--- !u!21 &869126049
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Back_scaledMaterial
+
+    22694'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: bd85d1b887514614b9eb12189df0206c, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &870201513
 GameObject:
   m_ObjectHideFlags: 0
@@ -39318,9 +39375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6236bbd5e6d55c844ac6de6d15f9dc8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableVuforia: 1
-  levelRoot: {fileID: 933517087}
-  mouseSensitivity: 0
 --- !u!1 &872329485
 GameObject:
   m_ObjectHideFlags: 0
@@ -64085,33 +64139,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1398512844}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!21 &1408123650
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Right_scaledMaterial
-
-    52108'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8c5c59d03c4740f2ab46851239f66e79, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1408475641
 GameObject:
   m_ObjectHideFlags: 0
@@ -64821,7 +64848,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 615399915}
+  - {fileID: 1880723718}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78181,6 +78208,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781206698}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
+--- !u!21 &1784120121
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Left_scaledMaterial
+
+    22694'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d7c3a70a7f124e9099f15bf1d92191d8, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1784221866
 GameObject:
   m_ObjectHideFlags: 0
@@ -80030,7 +80084,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.258
+      value: 0.09607774
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalPosition.y
@@ -80038,7 +80092,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.489
+      value: 1.5789222
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalRotation.x
@@ -80046,7 +80100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7071066
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalRotation.z
@@ -80054,7 +80108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.70710707
+      value: 0.0000002682209
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_RootOrder
@@ -80062,7 +80116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973865695319378, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
+      value: 180.00002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf9164582ded215468fa05f684c0bdff, type: 2}
@@ -81144,7 +81198,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1408123650}
+  - {fileID: 392114164}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82176,6 +82230,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878187318}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
+--- !u!21 &1880723718
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'cereals_box_bigger.Front_scaledMaterial
+
+    22694'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 46cae94c336746bf95f591553d2c2369, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1880799832
 GameObject:
   m_ObjectHideFlags: 0
@@ -86445,7 +86526,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985626812}
-  m_Mesh: {fileID: 427673949}
+  m_Mesh: {fileID: 866816352}
 --- !u!23 &1985626814
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86461,7 +86542,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 1993042923}
+  - {fileID: 753546237}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86720,33 +86801,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1992903465}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!21 &1993042923
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'buttonsMaterial
-
-    52342'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 382df0931dac416084de63c1135893e5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1993570641
 GameObject:
   m_ObjectHideFlags: 0
@@ -92424,7 +92478,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2128084647}
+  - {fileID: 1784120121}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93180,33 +93234,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125934501}
   m_Mesh: {fileID: 4300000, guid: 32855d20f6607c14ab627550127818a7, type: 3}
---- !u!21 &2128084647
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'cereals_box_bigger.Left_scaledMaterial
-
-    52108'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d7c3a70a7f124e9099f15bf1d92191d8, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &2128651663
 GameObject:
   m_ObjectHideFlags: 0
