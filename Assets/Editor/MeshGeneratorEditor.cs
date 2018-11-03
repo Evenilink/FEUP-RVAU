@@ -6,9 +6,9 @@ public class ObjectBuilderEditor : Editor {
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
 
-        MeshGenerator generator = (MeshGenerator)target;
+        /*MeshGenerator generator = (MeshGenerator)target;
         if (GUILayout.Button("Generate")) {
-            generator.GenerateMesh();
-        }
+            //generator.GenerateMesh();
+        }*/
     }
 }

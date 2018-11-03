@@ -3,7 +3,11 @@ guid: 8b8e088cd7c8f3d4391b3f3dc8f489e7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - quadToInstantiate: {fileID: 1141501183495780, guid: ca710b1405760614cbe2567da0e896b0,
+      type: 2}
+  - parent: {instanceID: 0}
+  - palette: {fileID: 2800000, guid: 45bef34d436000c41a43401dd87e015e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

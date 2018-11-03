@@ -4,30 +4,30 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 
-public class MeshGenerator : MonoBehaviour {
-    [SerializeField] private Object meshFile;
-    [SerializeField] private string meshName = "GeneratedObject";
-    [SerializeField] private GameObject quadToInstantiate;
-    [SerializeField] private Vector3 scale = Vector3.one;
-    [SerializeField] private GameObject parent = null;
-    [SerializeField] private Texture2D palette;
-    [SerializeField] private Material[] materials;
+public class MeshGenerator {
+    private GameObject quadToInstantiate;
+    private Texture2D palette;
+    private Material[] materials;
 
-    public void GenerateMesh() {
-        MeshDataset dataset = new MeshDataset(meshFile.name);
-        //MeshDataset dataset = new MeshDataset(AssetDatabase.GetAssetPath(meshFile));
+    public MeshGenerator(GameObject quad, Texture2D palette, Material[] materials) {
+        this.quadToInstantiate = quad;
+        this.palette = palette;
+        this.materials = materials;
+    }
+
+    public GameObject GenerateMesh(string meshFile, string meshName, Vector3 scale) {
+        MeshDataset dataset = new MeshDataset(meshFile);
+
         Vector3 max = new Vector3(int.MinValue, int.MinValue, int.MinValue);
         Vector3 min = new Vector3(int.MaxValue, int.MaxValue, int.MaxValue);
 
         // Creates root object to hold all the instantiated quads
         GameObject rootObject = new GameObject();
         rootObject.name = meshName;
-        
-        if (parent != null) rootObject.transform.parent = parent.transform;
-        
+
         for (int faceIdx = 0; faceIdx < dataset.numFaces; faceIdx++) {
             Vector4 face = dataset.faces[faceIdx];
-            GameObject quad = Instantiate(quadToInstantiate, rootObject.transform, true);
+            GameObject quad = GameObject.Instantiate(quadToInstantiate, rootObject.transform, true) as GameObject;
             quad.transform.parent = rootObject.transform;
 
             Vector3 normal = CalculateQuadNormal(dataset, quad, face);
@@ -44,6 +44,8 @@ public class MeshGenerator : MonoBehaviour {
         
         mp.min = Vector3.Scale(min, scale);
         mp.max = Vector3.Scale(max, scale);
+
+        return rootObject;
     }
 
     private Vector3 CalculateQuadNormal(MeshDataset dataset, GameObject quad, Vector4 face) {
