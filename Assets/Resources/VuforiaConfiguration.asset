@@ -15,7 +15,7 @@ MonoBehaviour:
     vuforiaLicenseKey: AX+cJ5L/////AAABmQ0XlbtOPEYwmz5SKx5MtZ8hkG9hSIW76tE7XZ90xCw40CQnfBsbsv2mhH15y/OzwMJ/ExJH03/3pld+cN6Kz67bUsmi/W4FRT1+TN8h1iMOpt6U8/vJy3cFDEOqL/+aeN0yQRR7IB0hOLpg8TuvynYZl8ZCBf392dWqq9lr9L2Vki7ylbZhYhxm9knkboanq1uT1dLgag/gPAnUqnW6FulzAaPk7uUprwpA9zS630in9RwlNKnIP7RQzQgpAkdXmrUFPfiQXrFESnfNyvq5nHlTvEyCpNns1ygfKnZWfBL85a5m4eMLRvYeyZOnhsEm92Ttieqjey9EnqbdnZewDS6IdzhXfQUwQjPOFcIXvC9E
     ufoLicenseKey: QVhiM0Y1Ly8vLy8vQUFBQUtPbnFIeHJFSGs1N3VrMlg4U050eVBzK2pkOFZxMDhrazlwYjBsYS9aZUIxQlV1ckZWcWt0ZllSQWpnT2tIRlY2VzdOMDRTRjNYRUhmbTF5L1BnYlB4eWdHWEF6RUNheXowc3dyNVNYa2ozdERuRjhka1FpOHRscHdkMDcrcEJEY1FjTjNJcUM1bEgwOTYzQkdZdjRsQStRb0hSQU9nRGthelp5TlY0WHVwWU9EaE05NWw5bXAzbnBDMjM5MWZBWXBFdEdiL2loTDNab3N4b25ZblhjK1JtSS9wLzRoTDIwVGhmTXR6WFJNYkpUTXZLZzJoQ0N0TEJXNEptZ0pSOUtSdStzQWM3QjVNOWFFMGVHQ1dUT1VRSUUweEpiZC9ZL2cvS29iNDhBRXdQOGFwbWR5NmRWU0FHU2psVzRZY2FEU2Zud3J1ZHhucVNmSUZiajNTUnIzM0lKVlFIaW1rL0oyOGNFeDdyekcySXg=
     delayedInitialization: 0
-    cameraDeviceModeSetting: -1
+    cameraDeviceModeSetting: -2
     maxSimultaneousImageTargets: 1
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
@@ -26,11 +26,11 @@ MonoBehaviour:
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
-    eyewearType: 0
+    eyewearType: 2
     stereoFramework: 0
     seeThroughConfiguration: 0
-    viewerName: 
-    viewerManufacturer: 
+    viewerName: Generic Cardboard
+    viewerManufacturer: Vuforia
     useCustomViewer: 0
     customViewer:
       Version: 0
