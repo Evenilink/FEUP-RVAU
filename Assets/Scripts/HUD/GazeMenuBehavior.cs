@@ -9,16 +9,22 @@ public class GazeMenuBehavior : MonoBehaviour {
 
     [SerializeField] private float gazeTriggerTime = 2f;
     [SerializeField] private Color pressedColor;
+    [SerializeField] private GameObject gazer;
+    [SerializeField] private Vector3 gazerMinScale;
+    [SerializeField] private Vector3 gazerMaxScale;
+
     private Color enteredBtnStartColor;
     private GameObject buttonObject;
     private GraphicRaycaster raycaster;
     private PointerEventData pointerEventData;
     private EventSystem eventSystem;
+    
 
     void Start() {
         raycaster = GetComponent<GraphicRaycaster>();
         eventSystem = GetComponent<EventSystem>();
         buttonObject = null;
+        gazer.transform.localScale = gazerMinScale;
     }
 
     // Update is called once per frame
@@ -38,6 +44,9 @@ public class GazeMenuBehavior : MonoBehaviour {
                     buttonObject = result.gameObject;
                     OnPointerEnter(buttonObject);
                 }
+
+                Vector3 newScale = Vector3.Lerp(gazer.transform.localScale, gazerMaxScale, Time.deltaTime / gazeTriggerTime);
+                gazer.transform.localScale = newScale;
                 break;
             }
         }
@@ -45,7 +54,8 @@ public class GazeMenuBehavior : MonoBehaviour {
         if (buttonObject != null && results.Count == 0) {
             OnPointerExit(buttonObject);
             buttonObject = null;
-
+            Vector3 newScale = Vector3.Lerp(gazerMinScale, gazer.transform.localScale, Time.deltaTime / gazeTriggerTime);
+            gazer.transform.localScale = newScale;
         }
     }
 
