@@ -175,11 +175,11 @@ GameObject:
   - component: {fileID: 4602428822567312}
   - component: {fileID: 95600314319485014}
   - component: {fileID: 54841973854423678}
-  - component: {fileID: 114363536859021458}
   - component: {fileID: 136450144453524256}
   - component: {fileID: 65512828872707126}
-  - component: {fileID: 114689792017731420}
   - component: {fileID: 82788035820519318}
+  - component: {fileID: 114689792017731420}
+  - component: {fileID: 114363536859021458}
   - component: {fileID: 114557750137110262}
   m_Layer: 11
   m_Name: Goomba
@@ -574,7 +574,7 @@ Transform:
   m_GameObject: {fileID: 1412926527708182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4295027675883998}
   m_Father: {fileID: 0}
@@ -768,7 +768,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 5
+  MaxDistance: 18
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -890,9 +890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9245f1179566f488956b4c6e9d9dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distFromPlayerAndAbism: 0.5
-  minDistToObstacle: 0.09
-  lengthAbismRay: 3
+  distFromPlayerAndAbism: 1.2
+  minDistToObstacle: 0.7
+  lengthAbismRay: 11.89
   levelMask:
     serializedVersion: 2
     m_Bits: 512
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1a7530f14e15d4e8ab95bc3fbf8f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 0.8
+  movSpeed: 3
   levelMask:
     serializedVersion: 2
     m_Bits: 512

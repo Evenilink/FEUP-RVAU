@@ -47,11 +47,11 @@ public class GazeMenuBehavior : MonoBehaviour {
 
                 Vector3 newScale = Vector3.Lerp(gazer.transform.localScale, gazerMaxScale, Time.deltaTime / gazeTriggerTime);
                 gazer.transform.localScale = newScale;
-                break;
+                return;
             }
         }
 
-        if (buttonObject != null && results.Count == 0) {
+        if (buttonObject != null) {
             OnPointerExit(buttonObject);
             buttonObject = null;
             Vector3 newScale = Vector3.Lerp(gazerMinScale, gazer.transform.localScale, Time.deltaTime / gazeTriggerTime);

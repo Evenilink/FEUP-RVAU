@@ -5,7 +5,7 @@ public class LevelAnalyser : MonoBehaviour {
     // Distance from the player that the raycast for obstacle detection starts.
     [SerializeField] private float distFromPlayerAndAbism = 0.2f;
     // Minimum distance from the player and an obstacle.
-    [SerializeField, Range(0.09f, 0.15f)] private float minDistToObstacle = 0.09f;
+    [SerializeField] private float minDistToObstacle = 0.09f;
     [SerializeField] private float lengthAbismRay = 3f;
     [SerializeField] private LayerMask levelMask;
 

@@ -5,7 +5,7 @@ public class MainMenuClickHandler : MonoBehaviour {
 
     public void PlayBtnClick() {
         Debug.Log("Pressed play btn.");
-        SceneManager.LoadScene("WorldGeneration");
+        gameObject.active = false;
     }
 
     public void ExitBtnClick() {
