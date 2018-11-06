@@ -11,7 +11,7 @@ using UnityEditor;
 public class CreateMesh : EditorWindow {
     private static MeshGenerator meshGeneratorInstance = null;
     private static string pathToSave = "Assets/Prefabs/WorldStructures/";
-    private static Vector3 scale = new Vector3(0.4f, 0.4f, 0.4f);
+    private static Vector3 scale = new Vector3(2.1f, 2.1f, 2.1f);
 
     [MenuItem("Mesh Generator/Create Prefab")]
     static void CreatePrefab() {
