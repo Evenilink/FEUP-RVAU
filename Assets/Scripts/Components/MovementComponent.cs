@@ -56,7 +56,7 @@ public class MovementComponent : MonoBehaviour {
     }
 
     protected bool CheckIsGrounded() {
-        return Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, distGroundFromCenter, 0), groundCheckRadious, levelMask) && rb.velocity.y <= 0 && rb.velocity.y >= -0.1f;
+        return Physics.CheckCapsule(transform.position, transform.position - new Vector3(0, distGroundFromCenter, 0), groundCheckRadious, levelMask);
     }
 
     private void OnDrawGizmosSelected() {

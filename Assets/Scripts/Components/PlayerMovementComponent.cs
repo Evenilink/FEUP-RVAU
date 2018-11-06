@@ -14,6 +14,7 @@ public class PlayerMovementComponent : MovementComponent {
 
     private void FixedUpdate() {
         base.FixedUpdate();
+        print(isGrounded);
     }
 
     public void Move(float hInput) {

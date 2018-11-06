@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aliveTime: 10
-  moveSpeed: 1
+  moveSpeed: 5
   axisToMove: 2
