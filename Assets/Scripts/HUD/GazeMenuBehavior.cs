@@ -18,7 +18,6 @@ public class GazeMenuBehavior : MonoBehaviour {
     private GraphicRaycaster raycaster;
     private PointerEventData pointerEventData;
     private EventSystem eventSystem;
-    
 
     void Start() {
         raycaster = GetComponent<GraphicRaycaster>();
@@ -35,10 +34,9 @@ public class GazeMenuBehavior : MonoBehaviour {
 
         List<RaycastResult> results = new List<RaycastResult>();
         raycaster.Raycast(pointerEventData, results);
-
+        Debug.Log("CALLED: " + results.Count);
         foreach (RaycastResult result in results) {
-            GameObject btnObject = result.gameObject;
-            
+            print("Result:" + result.gameObject.name);
             if (isButton(result.gameObject)) {
                 if (buttonObject == null) {
                     buttonObject = result.gameObject;

@@ -5,9 +5,13 @@ public class GameMode : MonoBehaviour {
     [SerializeField] private PlayerController pc;
     [SerializeField] private bool gameStarted = false;
     [SerializeField] private Canvas mainMenu;
-    [SerializeField] private GameObject inGameMenuImageTarget;
-    [SerializeField] private GameObject inventoryImageTarget;
+    [SerializeField] private GameObject inGameMenu;
+    [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject gazer;
+    [SerializeField] private AudioClip startGameSound;
+    [SerializeField] private AudioClip endGameSound;
+
+    private AudioSource audioSource;
 
     private static GameMode instance;
 
@@ -15,6 +19,7 @@ public class GameMode : MonoBehaviour {
         if (instance != null && instance != this)
             Destroy(gameObject);
         else instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -33,26 +38,28 @@ public class GameMode : MonoBehaviour {
         WorldGenerator.Instance().GenerateStart();
         ScoreSystem.Instance().Restart();
         pc.Respawn();
+        audioSource.PlayOneShot(endGameSound);
         EndGame();
     }
 
     public void StartGame() {
         pc.enabled = true;
-        pc.transform.rotation = Quaternion.Euler(0, 180, 0);
         gameStarted = true;
+        pc.transform.rotation = Quaternion.Euler(0, 180, 0);
         mainMenu.gameObject.SetActive(false);
-        inventoryImageTarget.SetActive(true);
-        inGameMenuImageTarget.SetActive(true);
+        inGameMenu.SetActive(true);
+        inventory.SetActive(true);
         gazer.SetActive(false);
+        audioSource.PlayOneShot(startGameSound);
     }
 
     public void EndGame() {
         pc.enabled = false;
         gameStarted = false;
-        inGameMenuImageTarget.SetActive(false);
-        inventoryImageTarget.SetActive(false);
+        inGameMenu.SetActive(false);
+        inventory.SetActive(false);
         mainMenu.gameObject.SetActive(true);
-        gazer.SetActive(true);
+        gazer.SetActive(true);        
     }
 
     public bool HasGameStarted() {
