@@ -18,7 +18,6 @@ public class CloudSystem : MonoBehaviour {
     private GameObject[] clones;
 
 	private void Awake () {
-        Debug.Log(new Vector3((Mathf.Abs(maxSpawnX) + Mathf.Abs(minSpawnX)) / 2, (Mathf.Abs(maxSpawnY) + Mathf.Abs(minSpawnY)) / 2, (Mathf.Abs(maxSpawnZ) + Mathf.Abs(minSpawnZ)) / 2));
         clones = new GameObject[numClouds];
 		for (int i = 0; i < numClouds; i++) {
             Vector3 spawnPosition = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), Random.Range(minSpawnZ, maxSpawnZ));

@@ -7,6 +7,7 @@ public class GameMode : MonoBehaviour {
     [SerializeField] private Canvas mainMenu;
     [SerializeField] private GameObject inGameMenuImageTarget;
     [SerializeField] private GameObject inventoryImageTarget;
+    [SerializeField] private GameObject gazer;
 
     private static GameMode instance;
 
@@ -42,6 +43,7 @@ public class GameMode : MonoBehaviour {
         mainMenu.gameObject.SetActive(false);
         inventoryImageTarget.SetActive(true);
         inGameMenuImageTarget.SetActive(true);
+        gazer.SetActive(false);
     }
 
     public void EndGame() {
@@ -50,5 +52,10 @@ public class GameMode : MonoBehaviour {
         inGameMenuImageTarget.SetActive(false);
         inventoryImageTarget.SetActive(false);
         mainMenu.gameObject.SetActive(true);
+        gazer.SetActive(true);
+    }
+
+    public bool HasGameStarted() {
+        return gameStarted;
     }
 }

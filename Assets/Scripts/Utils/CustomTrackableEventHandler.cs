@@ -2,29 +2,15 @@
 
 public class CustomTrackableEventHandler : DefaultTrackableEventHandler {
 
+    [SerializeField] private GameObject sceneRoot;
+
     protected override void OnTrackingFound() {
         base.OnTrackingFound();
-
-        // Enable rigidbodies.
-        var rigidbodyComponents = GetComponentsInChildren<Rigidbody>(true);
-        foreach (var component in rigidbodyComponents)
-            component.useGravity = true;
-
-        // Enable player controller.
-        PlayerController playerControllerComponent = GetComponentInChildren<PlayerController>(true);
-        playerControllerComponent.enabled = true;
+        sceneRoot.SetActive(true);
     }
 
     protected override void OnTrackingLost() {
+        sceneRoot.SetActive(false);
         base.OnTrackingLost();
-
-        // Disable rigidbodies.
-        var rigidbodyComponents = GetComponentsInChildren<Rigidbody>(true);
-        foreach (var component in rigidbodyComponents)
-            component.useGravity = false;
-
-        // Disable player controller.
-        PlayerController playerControllerComponent = GetComponentInChildren<PlayerController>(true);
-        playerControllerComponent.enabled = false;
     }
 }
