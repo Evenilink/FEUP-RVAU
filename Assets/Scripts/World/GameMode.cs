@@ -50,7 +50,7 @@ public class GameMode : MonoBehaviour {
         inGameMenu.SetActive(true);
         inventory.SetActive(true);
         gazer.SetActive(false);
-        audioSource.PlayOneShot(startGameSound, 0.2f);
+        audioSource.PlayOneShot(startGameSound, 0.4f);
     }
 
     public void EndGame() {
