@@ -17,10 +17,6 @@ public class ScoreSystem : MonoBehaviour {
         else instance = this;
     }
 
-    private void Update() {
-        print(score);
-    }
-
     private void Start() {
         lastHeight = playerTransform.localPosition.y;
         PlayerMovementComponent.OnHitGround += CalculateScore;
