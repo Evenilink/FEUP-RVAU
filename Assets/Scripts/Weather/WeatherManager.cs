@@ -13,6 +13,7 @@ public class WeatherManager : MonoBehaviour {
     [SerializeField] private int maxTimeOut = 10;
     [SerializeField] private GameObject cloudSystem;
 
+
     void Start() {
         StartCoroutine(GetWeather(CheckWeatherStatus));
     }
@@ -55,7 +56,7 @@ public class WeatherManager : MonoBehaviour {
         }
 #endif
 
-        string header = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=" + API_KEY;
+        string header = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&units=metric" + "&APPID=" + API_KEY;
         using (UnityWebRequest req = UnityWebRequest.Get(header)) {
             yield return req.SendWebRequest();
             while (!req.isDone)
@@ -68,6 +69,7 @@ public class WeatherManager : MonoBehaviour {
     }
 
     private void CheckWeatherStatus(WeatherInfo weatherInfo) {
+        Debug.Log(weatherInfo.main.temp );
         Debug.Log("Current weather is: " + weatherInfo.weather[0].main);
         string weather = weatherInfo.weather[0].main;
         switch (weather) {
