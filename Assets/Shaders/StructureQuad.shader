@@ -1,10 +1,17 @@
 ﻿Shader "Custom/StructureQuad" {
 	Properties {
-		_TopTex("Top Texture", 2D) = "white" {}
-		_SideTex("Side Texture", 2D) = "white" {}
-		_BotTex ("Bottom Texture", 2D) = "white" {}
+		_TopTex0("Top Texture Cold", 2D) = "white" {}
+		_SideTex0("Side Texture Cold", 2D) = "white" {}
+		_BotTex0("Bottom Texture Cold", 2D) = "white" {}
+		_TopTex1("Top Texture Warm", 2D) = "white" {}
+		_SideTex1("Side Texture Warm", 2D) = "white" {}
+		_BotTex1("Bottom Texture Warm", 2D) = "white" {}
+		_TopTex2("Top Texture Hot", 2D) = "white" {}
+		_SideTex2("Side Texture Hot", 2D) = "white" {}
+		_BotTex2("Bottom Texture Hot", 2D) = "white" {}
 		_Color ("Color", Color) = (1,1,1,1)
 	}
+
 	SubShader {
 		Tags { "RenderType"="Opaque" }
 		LOD 200
@@ -16,32 +23,81 @@
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
 
+		float face_type;
+
 		struct Input {
 			float3 worldNormal;
-			float2 uv_TopTex;
-			float2 uv_SideTex;
-			float2 uv_BotTex;
+			float2 uv_TopTex0;
+			float2 uv_SideTex0;
+			float2 uv_BotTex0;
+			float2 uv_TopTex1;
+			float2 uv_SideTex1;
+			float2 uv_BotTex1;
+			float2 uv_TopTex2;
+			float2 uv_SideTex2;
+			float2 uv_BotTex2;
 		};
 
-		sampler2D _BotTex;
-		sampler2D _SideTex;
-		sampler2D _TopTex;
+		sampler2D _BotTex0;
+		sampler2D _SideTex0;
+		sampler2D _TopTex0;
+		sampler2D _BotTex1;
+		sampler2D _SideTex1;
+		sampler2D _TopTex1;
+		sampler2D _BotTex2;
+		sampler2D _SideTex2;
+		sampler2D _TopTex2;
 
 		void surf(Input IN, inout SurfaceOutputStandard o) {
-			if (IN.worldNormal.y > 0.9) {
-				// Top
-				o.Albedo = tex2D(_TopTex, IN.uv_TopTex).rgb;
-			} else if (IN.worldNormal.y < -0.9) {
-				// Bot
-				o.Albedo = tex2D(_BotTex, IN.uv_BotTex).rgb;
-			} else {
-				// Side
-				o.Albedo = tex2D(_SideTex, IN.uv_SideTex).rgb;
+			switch (face_type) {
+			case 0: // Cold
+				if (IN.worldNormal.y > 0.9) {
+					// Top
+					o.Albedo = tex2D(_TopTex0, IN.uv_TopTex0).rgb;
+				}
+				else if (IN.worldNormal.y < -0.9) {
+					// Bot
+					o.Albedo = tex2D(_BotTex0, IN.uv_BotTex0).rgb;
+				}
+				else {
+					// Side
+					o.Albedo = tex2D(_SideTex0, IN.uv_SideTex0).rgb;
+				}
+				break;
+			case 1: // Warm
+				if (IN.worldNormal.y > 0.9) {
+					// Top
+					o.Albedo = tex2D(_TopTex0, IN.uv_TopTex0).rgb;
+				}
+				else if (IN.worldNormal.y < -0.9) {
+					// Bot
+					o.Albedo = tex2D(_BotTex0, IN.uv_BotTex0).rgb;
+				}
+				else {
+					// Side
+					o.Albedo = tex2D(_SideTex0, IN.uv_SideTex0).rgb;
+				}
+				break;
+			case 2: // Hot
+				if (IN.worldNormal.y > 0.9) {
+					// Top
+					o.Albedo = tex2D(_TopTex0, IN.uv_TopTex0).rgb;
+				}
+				else if (IN.worldNormal.y < -0.9) {
+					// Bot
+					o.Albedo = tex2D(_BotTex0, IN.uv_BotTex0).rgb;
+				}
+				else {
+					// Side
+					o.Albedo = tex2D(_SideTex0, IN.uv_SideTex0).rgb;
+				}
+				break;
 			}
 
 			o.Metallic = 0.0;
 			o.Smoothness = 0.0;
 		}
+			
 
 		/*half _Glossiness;
 		half _Metallic;

@@ -22,6 +22,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 974f945123aa7a04a86456f709a11b22, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BotTex0:
+        m_Texture: {fileID: 2800000, guid: 974f945123aa7a04a86456f709a11b22, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BotTex1:
+        m_Texture: {fileID: 2800000, guid: 974f945123aa7a04a86456f709a11b22, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BotTex2:
+        m_Texture: {fileID: 2800000, guid: 974f945123aa7a04a86456f709a11b22, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,8 +74,32 @@ Material:
         m_Texture: {fileID: 2800000, guid: 473ada8c43334e249b8a2fb964e1e3d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SideTex0:
+        m_Texture: {fileID: 2800000, guid: 473ada8c43334e249b8a2fb964e1e3d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SideTex1:
+        m_Texture: {fileID: 2800000, guid: ac3f13bde44d02848a651effe1b9a56c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SideTex2:
+        m_Texture: {fileID: 2800000, guid: 59dc03bd00951d94dbed87a649400a30, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TopTex:
         m_Texture: {fileID: 2800000, guid: 9a3fa2b2149cb2f47952c14d895e1478, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex0:
+        m_Texture: {fileID: 2800000, guid: 9a3fa2b2149cb2f47952c14d895e1478, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex1:
+        m_Texture: {fileID: 2800000, guid: 134af56b6772cb04a9814a362ef42636, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex2:
+        m_Texture: {fileID: 2800000, guid: 592d26a468b2e89498876af99cd8a630, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
