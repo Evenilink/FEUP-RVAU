@@ -71,7 +71,6 @@ public class WeatherManager : MonoBehaviour {
     private void CheckWeatherStatus(WeatherInfo weatherInfo) {
         float temp = weatherInfo.main.temp;
         Debug.Log("Current weather is: " + weatherInfo.weather[0].main + "\nTemperature: " + temp);
-
         if (temp < 10) { // Cold
             Shader.SetGlobalFloat("face_type", 0);
         } else if (temp < 25) {

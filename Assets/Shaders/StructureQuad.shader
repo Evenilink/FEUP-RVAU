@@ -21,7 +21,7 @@
 		#pragma surface surf Standard fullforwardshadows
 
 		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
+		#pragma target 4.0
 
 		float face_type;
 
@@ -67,29 +67,29 @@
 			case 1: // Warm
 				if (IN.worldNormal.y > 0.9) {
 					// Top
-					o.Albedo = tex2D(_TopTex0, IN.uv_TopTex0).rgb;
+					o.Albedo = tex2D(_TopTex1, IN.uv_TopTex1).rgb;
 				}
 				else if (IN.worldNormal.y < -0.9) {
 					// Bot
-					o.Albedo = tex2D(_BotTex0, IN.uv_BotTex0).rgb;
+					o.Albedo = tex2D(_BotTex1, IN.uv_BotTex1).rgb;
 				}
 				else {
 					// Side
-					o.Albedo = tex2D(_SideTex0, IN.uv_SideTex0).rgb;
+					o.Albedo = tex2D(_SideTex1, IN.uv_SideTex1).rgb;
 				}
 				break;
 			case 2: // Hot
 				if (IN.worldNormal.y > 0.9) {
 					// Top
-					o.Albedo = tex2D(_TopTex0, IN.uv_TopTex0).rgb;
+					o.Albedo = tex2D(_TopTex2, IN.uv_TopTex2).rgb;
 				}
 				else if (IN.worldNormal.y < -0.9) {
 					// Bot
-					o.Albedo = tex2D(_BotTex0, IN.uv_BotTex0).rgb;
+					o.Albedo = tex2D(_BotTex2, IN.uv_BotTex2).rgb;
 				}
 				else {
 					// Side
-					o.Albedo = tex2D(_SideTex0, IN.uv_SideTex0).rgb;
+					o.Albedo = tex2D(_SideTex2, IN.uv_SideTex2).rgb;
 				}
 				break;
 			}
