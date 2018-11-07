@@ -27,12 +27,13 @@ public class LevelScrollingManager : MonoBehaviour {
 
     public void Restart() {
         lastHeight = startHeight;
-        rootTransform.position = startPosition;
+        rootTransform.position = Vector3.zero;
     }
 
     // Method invoked by the object that calls the singleton instance, in order to scroll the level.
     // It scrolls 'height' units.
     public void ScrollHeight(float height) {
+        print(height);
         if (height > lastHeight) {
             float heightToScroll = -(height - lastHeight);
             lastHeight -= heightToScroll;

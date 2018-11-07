@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     public static PlayerDie OnPlayerDie;
 
     private void Awake() {
-        startPosition = transform.position;
+        startPosition = transform.localPosition;
         startRotation = transform.rotation;
         movComp = GetComponent<PlayerMovementComponent>();
         rb = GetComponent<Rigidbody>();
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
+        print(startPosition);
         // Movement.
         float hInput = Input.GetAxis("Horizontal");
         movComp.Move(hInput);
@@ -40,12 +41,12 @@ public class PlayerController : MonoBehaviour {
         anim.SetBool("jump", !movComp.IsGrounded());
 
         if (Input.GetKeyDown(KeyCode.Q))
-            Respawn();
+            GameMode.Instance().Restart();
     }
 
     public void Respawn() {
         rb.velocity = Vector3.zero;
-        transform.position = startPosition;
+        transform.localPosition = startPosition;
         transform.rotation = startRotation;
         movComp.SetIsRight(true);
     }

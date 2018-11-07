@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuClickHandler : MonoBehaviour {
 
     public void PlayBtnClick() {
-        Debug.Log("Pressed play btn.");
-        gameObject.active = false;
+        GameMode.Instance().StartGame();
+        
     }
 
     public void ExitBtnClick() {
