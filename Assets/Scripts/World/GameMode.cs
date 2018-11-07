@@ -5,6 +5,8 @@ public class GameMode : MonoBehaviour {
     [SerializeField] private PlayerController pc;
     [SerializeField] private bool gameStarted = false;
     [SerializeField] private Canvas mainMenu;
+    [SerializeField] private GameObject inGameMenuImageTarget;
+    [SerializeField] private GameObject inventoryImageTarget;
 
     private static GameMode instance;
 
@@ -16,8 +18,9 @@ public class GameMode : MonoBehaviour {
 
     private void Start() {
         WorldGenerator.Instance().GenerateStart();
-        pc.enabled = false;
-        if (gameStarted) StartGame();
+        if (gameStarted)
+            StartGame();
+        else EndGame();
     }
 
     public static GameMode Instance() {
@@ -33,15 +36,19 @@ public class GameMode : MonoBehaviour {
     }
 
     public void StartGame() {
-        mainMenu.gameObject.SetActive(false);
         pc.enabled = true;
         pc.transform.rotation = Quaternion.Euler(0, 180, 0);
         gameStarted = true;
+        mainMenu.gameObject.SetActive(false);
+        inventoryImageTarget.SetActive(true);
+        inGameMenuImageTarget.SetActive(true);
     }
 
     public void EndGame() {
-        mainMenu.gameObject.SetActive(true);
         pc.enabled = false;
         gameStarted = false;
+        inGameMenuImageTarget.SetActive(false);
+        inventoryImageTarget.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
     }
 }

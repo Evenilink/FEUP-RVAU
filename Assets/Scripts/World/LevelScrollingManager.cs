@@ -33,7 +33,6 @@ public class LevelScrollingManager : MonoBehaviour {
     // Method invoked by the object that calls the singleton instance, in order to scroll the level.
     // It scrolls 'height' units.
     public void ScrollHeight(float height) {
-        print(height);
         if (height > lastHeight) {
             float heightToScroll = -(height - lastHeight);
             lastHeight -= heightToScroll;
@@ -49,7 +48,6 @@ public class LevelScrollingManager : MonoBehaviour {
 
     // Coroutine to spherically interpolate the level.
     private IEnumerator ScrollHeightCoroutine(float height) {
-        Debug.Log("Scrolling: " + height);
         float startTime = Time.time;
         float fracComplete = 0f;
         Vector3 finalPosition = new Vector3(rootTransform.position.x, rootTransform.position.y + height, rootTransform.position.z);

@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        print(startPosition);
         // Movement.
         float hInput = Input.GetAxis("Horizontal");
         movComp.Move(hInput);

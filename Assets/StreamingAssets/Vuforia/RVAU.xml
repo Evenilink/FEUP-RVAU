@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
     <Tracking>
-        <ImageTarget name="Inventory" size="6.000000 2.753821"/>
         <ImageTarget name="Menu" size="3.000000 3.000000"/>
-        <ImageTarget name="QRCube.Bottom" size="10.000000 10.000000"/>
-        <ImageTarget name="QRCube.Top" size="10.000000 10.000000"/>
+        <ImageTarget name="Inventory" size="6.000000 3.000000"/>
         <ImageTarget name="QRCube.Left" size="10.000000 10.000000"/>
+        <ImageTarget name="QRCube.Top" size="10.000000 10.000000"/>
+        <ImageTarget name="QRCube.Bottom" size="10.000000 10.000000"/>
         <ImageTarget name="QRCube.Right" size="10.000000 10.000000"/>
         <ImageTarget name="QRCube.Front" size="10.000000 10.000000"/>
         <MultiTarget name="QRCube">

@@ -81,6 +81,15 @@ public class GazeMenuBehavior : MonoBehaviour {
         ExecuteEvents.Execute(obj, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
     }
 
+    private void OnEnable() {
+        gazer.transform.localScale = gazerMinScale;
+        gazer.SetActive(true);
+    }
+
+    private void OnDisable() {
+        gazer.SetActive(false);
+    }
+
     private bool isButton(GameObject obj) {
         Button btn = obj.GetComponent<Button>();
         return btn != null;
