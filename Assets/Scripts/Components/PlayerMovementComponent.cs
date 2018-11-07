@@ -3,6 +3,8 @@
 public class PlayerMovementComponent : MovementComponent {
 
     private PlayerController pc;
+    private float jumpIncreasedPercentage = 0f;
+    private float speedIncreasedPercentage = 0f;
 
     public delegate void HitGround(float localPositionY);
     public static HitGround OnHitGround;
@@ -31,6 +33,7 @@ public class PlayerMovementComponent : MovementComponent {
                     RotatePlayer(isRight ? ROTATE_FROM_RIGHT : -ROTATE_FROM_RIGHT);
                 // Since we're rotating the character when he flips (instead of applying a negative scale) we're only interested in the absolute value of the input.
                 Vector3 horizontalMovement = transform.right * Mathf.Abs(hInput);
+                horizontalMovement += horizontalMovement * speedIncreasedPercentage;
                 transform.position += horizontalMovement * movementSpeed * Time.deltaTime;
             }
         }
@@ -43,5 +46,17 @@ public class PlayerMovementComponent : MovementComponent {
     
     public void SetIsRight(bool value) {
         isRight = value;
+    }
+
+    public void Jump() {
+        rb.AddForce(0, jumpForce + jumpForce * jumpIncreasedPercentage, 0, ForceMode.Impulse);
+    }
+
+    public void SetJumpPowerPercentage(float jumpIncreasedPercentage) {
+        this.jumpIncreasedPercentage = jumpIncreasedPercentage;
+    }
+
+    public void SetspeedPowerPercentage(float speedIncreasedPercentage) {
+        this.speedIncreasedPercentage = speedIncreasedPercentage;
     }
 }

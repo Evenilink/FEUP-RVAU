@@ -5,14 +5,35 @@ public class PlayerController : MonoBehaviour {
     [Header("Components")]
     private PlayerMovementComponent movComp;
     private Rigidbody rb;
+    private AudioSource audioSource;
 
     [Header("Defaults")]
     private Vector3 startPosition;
     private Quaternion startRotation;
     private Animator anim;
 
+    [Header("Powers")]
+    [SerializeField] private AudioClip speedClip;
+    [SerializeField] private float speedIncreasePercentage = 0.2f;
+    [SerializeField] private float speedDuration = 5f;
+    [SerializeField] private float speedCooldown = 18f;
+    private float currSpeedDuration = 0f;
+    private float currSpeedCooldown = 0f;
+    private bool speedEnabled = false;
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private float jumpIncreasePercentage = 0.2f;
+    [SerializeField] private float jumpDuration = 6f;
+    [SerializeField] private float jumpCooldown = 20f;
+    private float currJumpDuration = 0f;
+    private float currJumpCooldown = 0f;
+    private bool jumpEnabled = false;
+
     public delegate void PlayerDie();
     public static PlayerDie OnPlayerDie;
+    public delegate void SpeedPower(float newValue);
+    public static SpeedPower OnSpeedPowerValueChange;
+    public delegate void JumpPower(float newValue);
+    public static JumpPower OnJumpPowerValueChange;
 
     private void Awake() {
         startPosition = transform.localPosition;
@@ -20,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         movComp = GetComponent<PlayerMovementComponent>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -39,8 +61,55 @@ public class PlayerController : MonoBehaviour {
             movComp.SetHoldingJump(false);
         anim.SetBool("jump", !movComp.IsGrounded());
 
+        HandlePowers();
+
+        // Debug purposes only.
         if (Input.GetKeyDown(KeyCode.Q))
             GameMode.Instance().Restart();
+    }
+
+    private void HandlePowers() {
+        // Jump Power.
+        if (Input.GetButtonDown("Power Jump") && !jumpEnabled && currJumpCooldown <= 0) {
+            print("Jump activated.");
+            jumpEnabled = true;
+            currJumpCooldown = jumpCooldown;
+            currJumpDuration = 0f;
+            movComp.SetJumpPowerPercentage(jumpIncreasePercentage);
+            audioSource.PlayOneShot(jumpClip, 7);
+        }
+        if (jumpEnabled) {
+            currJumpDuration += Time.deltaTime;
+            if (currJumpDuration >= jumpDuration) {
+                jumpEnabled = false;
+                print("Jump deactivated.");
+                movComp.SetJumpPowerPercentage(0);
+            }
+        }
+        else currJumpCooldown -= Time.deltaTime;
+        if (currJumpCooldown >= 0 && OnJumpPowerValueChange != null)
+            OnJumpPowerValueChange((jumpCooldown - currJumpCooldown) / jumpCooldown);
+
+        // Speed Power.
+        if (Input.GetButtonDown("Power Speed") && !speedEnabled && currSpeedCooldown <= 0) {
+            print("Speed activated.");
+            speedEnabled = true;
+            currSpeedCooldown = speedCooldown;
+            currSpeedDuration = 0f;
+            movComp.SetspeedPowerPercentage(speedIncreasePercentage);
+            audioSource.PlayOneShot(speedClip, 7);
+        }
+        if (speedEnabled) {
+            currSpeedDuration += Time.deltaTime;
+            if (currSpeedDuration >= speedDuration) {
+                speedEnabled = false;
+                print("Speed deactivated.");
+                movComp.SetspeedPowerPercentage(0);
+            }
+        }
+        else currSpeedCooldown -= Time.deltaTime;
+        if (currSpeedCooldown >= 0 && OnSpeedPowerValueChange != null)
+            OnSpeedPowerValueChange((speedCooldown - currSpeedCooldown) / speedCooldown);
     }
 
     public void Respawn() {
