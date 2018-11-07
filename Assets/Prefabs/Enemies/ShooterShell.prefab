@@ -270,7 +270,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395371708063766}
-  - component: {fileID: 95117553932061778}
   m_Layer: 0
   m_Name: basicCharacter
   m_TagString: Untagged
@@ -517,7 +516,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721388417680822}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00011813873, y: 0.034, z: -0.007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4570108817018420}
@@ -762,9 +761,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &65680688457991366
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -775,8 +774,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25, z: 0.25}
-  m_Center: {x: 0, y: 0.96, z: 0}
+  m_Size: {x: 0.4, y: 0.3, z: 0.4}
+  m_Center: {x: 0, y: 1.02, z: 0}
 --- !u!82 &82781726905310978
 AudioSource:
   m_ObjectHideFlags: 1
@@ -872,24 +871,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &95117553932061778
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721388417680822}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e7d7c02c0504f8a4abc83c66f2d5e28e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95548645529312246
 Animator:
   serializedVersion: 3
@@ -937,8 +918,8 @@ MonoBehaviour:
   fireRate: 1.8
   fireClip: {fileID: 8300000, guid: b5e8d9975944b0d448e7f0bf0491fc76, type: 3}
   canJump: 1
-  minJumpRate: 1
-  maxJumpRate: 1.5
+  minJumpRate: 2
+  maxJumpRate: 3
   jumpStartClip: {fileID: 8300000, guid: 2ab4cef0cb131e4408a9954f56b1e012, type: 3}
 --- !u!114 &114111019658563840
 MonoBehaviour:

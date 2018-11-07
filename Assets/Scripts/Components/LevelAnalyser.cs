@@ -15,7 +15,7 @@ public class LevelAnalyser : MonoBehaviour {
         canKeepMoving = true;
         RaycastHit hit;
         Vector3 startPosition = transform.position;
-        //Debug.DrawLine(startPosition, startPosition + transform.right * (distFromPlayerAndAbism + minDistToObstacle + 1f), Color.blue);
+        // Debug.DrawLine(startPosition, startPosition + transform.right * (distFromPlayerAndAbism + minDistToObstacle + 1f), Color.blue);
         if (obstacleDetected = Physics.Raycast(startPosition, transform.right, out hit, distFromPlayerAndAbism + minDistToObstacle + 1f, levelMask)) {
             if (hit.distance <= minDistToObstacle)
                 canKeepMoving = false;
@@ -24,7 +24,7 @@ public class LevelAnalyser : MonoBehaviour {
 
     public bool CheckAbism() {
         Vector3 startPosition = transform.position + transform.right * distFromPlayerAndAbism;
-        //Debug.DrawLine(startPosition, startPosition + -transform.up * lengthAbismRay, Color.red);
+        // Debug.DrawLine(startPosition, startPosition + -transform.up * lengthAbismRay, Color.red);
         if (!Physics.Raycast(startPosition, -transform.up, lengthAbismRay, levelMask))
             return true;
         return false;

@@ -317,7 +317,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295027675883998}
-  - component: {fileID: 95918182763950336}
   m_Layer: 0
   m_Name: basicCharacter
   m_TagString: Untagged
@@ -433,7 +432,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755657510761582}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00011813873, y: 0.034, z: -0.007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4380373680925628}
@@ -733,9 +732,9 @@ Rigidbody:
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &65512828872707126
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -746,8 +745,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25, z: 0.25}
-  m_Center: {x: 0, y: 0.96, z: 0}
+  m_Size: {x: 0.4, y: 0.3, z: 0.4}
+  m_Center: {x: 0, y: 1.02, z: 0}
 --- !u!82 &82788035820519318
 AudioSource:
   m_ObjectHideFlags: 1
@@ -861,24 +860,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95918182763950336
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755657510761582}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e7d7c02c0504f8a4abc83c66f2d5e28e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114363536859021458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,6 +915,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 589b09f7b7e02b348a9aabde70eb5439, type: 3}
   - {fileID: 8300000, guid: 2ae7cca85c664f54ebcb23eea252b49f, type: 3}
   - {fileID: 8300000, guid: 5e77809bb7da3804c80985171523af11, type: 3}
+  isWaitingDestroy: 0
 --- !u!136 &136450144453524256
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -944,7 +926,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.14
-  m_Height: 0.85
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.45, z: 0}
 --- !u!137 &137083826961679104

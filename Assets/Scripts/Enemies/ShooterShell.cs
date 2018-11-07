@@ -40,7 +40,6 @@ public class ShooterShell : BaseEnemy {
             jumpTime -= Time.deltaTime;
             if (jumpTime <= 0) {
                 if (movComp.IsGrounded()) {
-                    print("Jump");
                     movComp.Jump();
                     if (!isWaitingDestroy)
                         audioSource.PlayOneShot(jumpStartClip, 3);
