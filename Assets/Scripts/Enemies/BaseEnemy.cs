@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour {
 
     [SerializeField] protected float movSpeed;
     [SerializeField] protected LayerMask levelMask;
+    [SerializeField] protected AudioClip[] dieSounds;
+
+    public bool isWaitingDestroy = false;
     protected LevelAnalyser analyser;
 
     protected void Awake() {
@@ -15,6 +19,10 @@ public class BaseEnemy : MonoBehaviour {
     }
 
     public void Die() {
-        Destroy(gameObject);
+        transform.localScale = Vector3.zero;
+        isWaitingDestroy = true;
+        int index = Random.Range(0, dieSounds.Length);
+        GetComponent<AudioSource>().PlayOneShot(dieSounds[index]);
+        Destroy(gameObject, 2);
     }
 }

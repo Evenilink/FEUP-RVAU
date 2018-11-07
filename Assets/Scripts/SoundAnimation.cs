@@ -4,6 +4,8 @@
 public class SoundAnimation : MonoBehaviour {
 
     private AudioSource audioSource;
+    private BaseEnemy baseEnemy;
+
     [SerializeField] private AudioClip footstep;
     [SerializeField] private AudioClip heavyFootstep;
     [SerializeField] private AudioClip jumpStart;
@@ -11,10 +13,11 @@ public class SoundAnimation : MonoBehaviour {
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
+        baseEnemy = GetComponent<BaseEnemy>();
     }
 
     private void PlayStep() {
-        audioSource.PlayOneShot(footstep);
+            audioSource.PlayOneShot(footstep);
     }
 
     private void PlayJumpStart() {
@@ -26,6 +29,7 @@ public class SoundAnimation : MonoBehaviour {
     }
 
     private void PlayHeavyFootstep() {
+        if (baseEnemy == null || !baseEnemy.isWaitingDestroy)
         audioSource.PlayOneShot(heavyFootstep);
     }
 }

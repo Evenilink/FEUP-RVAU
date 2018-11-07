@@ -42,7 +42,8 @@ public class ShooterShell : BaseEnemy {
                 if (movComp.IsGrounded()) {
                     print("Jump");
                     movComp.Jump();
-                    audioSource.PlayOneShot(jumpStartClip, 3);
+                    if (!isWaitingDestroy)
+                        audioSource.PlayOneShot(jumpStartClip, 3);
                 }
                 jumpTime = Random.Range(minJumpRate, maxJumpRate);
             }
@@ -52,6 +53,7 @@ public class ShooterShell : BaseEnemy {
     private void Fire() {
         Instantiate(bullet, bulletSpawnPoint.position, transform.rotation, transform.parent);
         shootTime = fireRate;
-        audioSource.PlayOneShot(fireClip);
+        if (!isWaitingDestroy)
+            audioSource.PlayOneShot(fireClip);
     }
 }

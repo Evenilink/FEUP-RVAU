@@ -34,7 +34,7 @@ public class GazeMenuBehavior : MonoBehaviour {
 
         List<RaycastResult> results = new List<RaycastResult>();
         raycaster.Raycast(pointerEventData, results);
-        Debug.Log("CALLED: " + results.Count);
+
         foreach (RaycastResult result in results) {
             print("Result:" + result.gameObject.name);
             if (isButton(result.gameObject)) {

@@ -923,6 +923,15 @@ MonoBehaviour:
   levelMask:
     serializedVersion: 2
     m_Bits: 512
+  dieSounds:
+  - {fileID: 8300000, guid: 5c3551bc877bd1e4e8cc904bdeba46ad, type: 3}
+  - {fileID: 8300000, guid: 46ebce0c0513e5c419e11ade1fac4671, type: 3}
+  - {fileID: 8300000, guid: 754210ec4752e604eb3c1507e415d764, type: 3}
+  - {fileID: 8300000, guid: 82a3ebbedccf2614caeeb52f0de2df5f, type: 3}
+  - {fileID: 8300000, guid: 589b09f7b7e02b348a9aabde70eb5439, type: 3}
+  - {fileID: 8300000, guid: 2ae7cca85c664f54ebcb23eea252b49f, type: 3}
+  - {fileID: 8300000, guid: 5e77809bb7da3804c80985171523af11, type: 3}
+  isWaitingDestroy: 0
   bullet: {fileID: 1346582606463576, guid: 26a9ec43e0210884fb395b4d01f97e3a, type: 2}
   bulletSpawnPoint: {fileID: 4955680329997242}
   fireRate: 0.7
