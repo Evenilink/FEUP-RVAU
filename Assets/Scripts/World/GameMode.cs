@@ -38,7 +38,7 @@ public class GameMode : MonoBehaviour {
         WorldGenerator.Instance().GenerateStart();
         ScoreSystem.Instance().Restart();
         pc.Respawn();
-        audioSource.PlayOneShot(endGameSound);
+        audioSource.PlayOneShot(endGameSound, 0.4f);
         EndGame();
     }
 
@@ -50,7 +50,7 @@ public class GameMode : MonoBehaviour {
         inGameMenu.SetActive(true);
         inventory.SetActive(true);
         gazer.SetActive(false);
-        audioSource.PlayOneShot(startGameSound);
+        audioSource.PlayOneShot(startGameSound, 0.2f);
     }
 
     public void EndGame() {
