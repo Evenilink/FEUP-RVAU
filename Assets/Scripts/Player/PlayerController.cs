@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Components")]
     private PlayerMovementComponent movComp;
     private Rigidbody rb;
+    private AudioSource audioSource;
 
     [Header("Defaults")]
     private Vector3 startPosition;
@@ -12,12 +13,14 @@ public class PlayerController : MonoBehaviour {
     private Animator anim;
 
     [Header("Powers")]
+    [SerializeField] private AudioClip speedClip;
     [SerializeField] private float speedIncreasePercentage = 0.2f;
     [SerializeField] private float speedDuration = 5f;
     [SerializeField] private float speedCooldown = 18f;
     private float currSpeedDuration = 0f;
     private float currSpeedCooldown = 0f;
     private bool speedEnabled = false;
+    [SerializeField] private AudioClip jumpClip;
     [SerializeField] private float jumpIncreasePercentage = 0.2f;
     [SerializeField] private float jumpDuration = 6f;
     [SerializeField] private float jumpCooldown = 20f;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         movComp = GetComponent<PlayerMovementComponent>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -57,10 +61,11 @@ public class PlayerController : MonoBehaviour {
             movComp.SetHoldingJump(false);
         anim.SetBool("jump", !movComp.IsGrounded());
 
+        HandlePowers();
+
+        // Debug purposes only.
         if (Input.GetKeyDown(KeyCode.Q))
             GameMode.Instance().Restart();
-
-        HandlePowers();
     }
 
     private void HandlePowers() {
@@ -71,6 +76,7 @@ public class PlayerController : MonoBehaviour {
             currJumpCooldown = jumpCooldown;
             currJumpDuration = 0f;
             movComp.SetJumpPowerPercentage(jumpIncreasePercentage);
+            audioSource.PlayOneShot(jumpClip, 7);
         }
         if (jumpEnabled) {
             currJumpDuration += Time.deltaTime;
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour {
             currSpeedCooldown = speedCooldown;
             currSpeedDuration = 0f;
             movComp.SetspeedPowerPercentage(speedIncreasePercentage);
+            audioSource.PlayOneShot(speedClip, 7);
         }
         if (speedEnabled) {
             currSpeedDuration += Time.deltaTime;
