@@ -17,11 +17,19 @@ Starting the application, the player must align himself with the model object, i
 
 After starting a new game, the player must use the controller to move the character. Using the thumbstick, he can move left or right, and by pressing the 'X' button on the Dual Shock 4 (or the 'A' button on the XBOX Remote Controller) he can make the character jump. The score increases by how high the player can climb.
 
-There are 2 types of enemies:
-* **Goomba**, moves laterally, kills the player by touching him, and is killed by being jumped on;
-* **Shooter Shell**, jumps most of the time while shooting bullets, kills the player by touching him or by hitting him with bullets, and is killed by being jumped on.
-
 Power Ups can be used by pressing the square button on the Dual Shock 4 (or 'X' on the XBOX Remote Controller) to increase player's speed for a few seconds (requiring a cooldown to be activated again), or the circle button on the Dual Shock 4 (or 'B' on the XBOX Remote Controller) to increase player's jump height, also requiring a cooldown.
+
+## Enemies
+
+### Goomba
+Moves laterally, kills the player by touching him, and is killed by being jumped on;
+
+![Goomba](https://imgur.com/zhvfidc.gif)
+
+### Shooter Shell
+Jumps most of the time while shooting bullets, kills the player by touching him or by hitting him with bullets, and is killed by being jumped on.
+
+![Shooter Shell](https://imgur.com/opUOyhS.gif)
 
 ## Technologies
 This project was created using **Unity3D** as the game engine, with the **Vuforia Framework** for every Augmented Reality feature needed, and the **Google Cardboard SDK** for Virtual Reality.
