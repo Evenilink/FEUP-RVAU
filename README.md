@@ -1,10 +1,10 @@
-# V-RARez
+# V.RARez
 
-V-RARez is a **Mixed Reality** video game for mobile phones, taking inspiration from [Fez](http://fezgame.com/).
+V.RARez is a **Mixed Reality** video game for mobile phones, taking inspiration from [Fez](http://fezgame.com/).
 
 There are 3 marks required to play the game: a cuboid object and 2 images. The cuboid object marks the actual playable scene, one of the images displays the current score and a button to restart the game, while the last image is an inventory the player can look to see if there's any available power up.
 
-V-RARez requires the player to move around an object that works as an **AR** mark, in order for him to be able to see his character and conquer the challenges laid before him.
+V.RARez requires the player to move around an object that works as an **AR** mark, in order for him to be able to see his character and conquer the challenges laid before him.
 
 The game also uses **VR**, in which the phone's camera is used. This way, the player can still see his environments, while not requiring him to hold the phone in his hands.
 
